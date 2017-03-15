@@ -4,27 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Alamofire.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>HTMLReader.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Kanna.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-YardSaleBoss.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,22 +22,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4CB0E5909316D09AAA8E27ACE94116D1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4D10E4FF5A483B852B47CCA0B994E340</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D1697F0F518AD8F7074452B1ACD4264F</key>
+		<key>68D5A4B2FBCA0B8071FA4A8CBD2E23DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

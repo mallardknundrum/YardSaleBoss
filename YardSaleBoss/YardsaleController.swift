@@ -1,37 +1,34 @@
 //
-//  HTMLParseController.swift
+//  YardsaleController.swift
 //  YardSaleBoss
 //
-//  Created by Jeremiah Hawks on 3/13/17.
+//  Created by Jeremiah Hawks on 3/15/17.
 //  Copyright © 2017 Jeremiah Hawks. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import HTMLReader
 
-class HTMLParseController {
+class YardsaleController {
     
-    static var shared = HTMLParseController()
+    static let shared = YardsaleController()
     
-    var listings: [Yardsale] = []
-    let baseURL = URL(string: "http://www.ksl.com/classifieds/search/")
-    let parameters = ["keyword": "", "category%5B%5D": "Announcements&subCategory%5B%5D=Garage%2C+Estate%2C+%26+Yard+Sales", "priceFrom": "", "priceTo": "", "city": "", "state": "UT", "zip": "", "miles": "25", "sort": "0"]
-
     let backSlashCharacterSet = CharacterSet(charactersIn: "\u{005C}")
     
-    let url = URL(string: "http://www.ksl.com/classifieds/search/?keyword=&category%5B%5D=Announcements&subCategory%5B%5D=Garage%2C+Estate%2C+%26+Yard+Sales&priceFrom=&priceTo=&city=&state=UT&zip=&miles=25&sort=0")
-    
-    func fetchYardsalesWithURL() {
-        let session = URLSession.shared
-        guard let url = url  else { return }
-        let dataTask = session.dataTask(with: url) { (data, _, error) in
+    func fetchYardsales(withCity city: String = "", state: String = "", zipcode: String = "", andDistance distance: String = "", completion: @escaping ([Yardsale]) -> Void) {
+        let urlString = ("http://www.ksl.com/classifieds/search/?keyword=&category%5B%5D=Announcements&subCategory%5B%5D=Garage%2C+Estate%2C+%26+Yard+Sales&priceFrom=&priceTo=&city=\(city)&state=\(state)&zip=\(zipcode)&miles=\(distance)&sort=0").replacingOccurrences(of: " ", with: "%20")
+        guard let url = URL(string: urlString) else { completion ([]); return }
+        
+        NetworkController.performRequest(for: url, httpMethod: .Get, urlParameters: nil, body: nil) { (data, error) in
             if let error = error {
-                print("There was an error fetching the data \n \(error.localizedDescription)")
+                print(error.localizedDescription)
+                completion([])
+                return
             }
-            guard let data = data, let dataString = String(data: data, encoding: String.Encoding.utf8) else { return }
+            guard let data = data, let dataString = String(data: data, encoding: .utf8) else { completion([]); return }
             let doc = HTMLDocument(string: dataString)
-
             let listingsHTMLElementArray = doc.nodes(matchingSelector: "div[class^='listing-group'] > div[class^='listing']")
+            var listings: [Yardsale] = []
             
             for yardsale in listingsHTMLElementArray {
                 guard let imagePathEnd = (yardsale.nodes(matchingSelector: "div.photo > a > img")[0].attributes["src"]) else { return }
@@ -43,9 +40,10 @@ class HTMLParseController {
                 let title = yardsale.nodes(matchingSelector: "h2")[0].textContent.trimmingCharacters(in: .whitespacesAndNewlines)
                 guard let timeOnSite = yardsale.firstNode(matchingSelector: "div.listing-detail-line > span.timeOnSite")?.textContent.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
                 let yardsale = Yardsale(title: title, yardsaleDescription: yardSaleDescription, yardsaleURL: adpath, imageURL: imagePath, timeOnSite: timeOnSite, cityStateString: cityState)
-                self.listings.append(yardsale)
+                listings.append(yardsale)
             }
+            completion(listings)
+            return
         }
-        dataTask.resume()
     }
 }

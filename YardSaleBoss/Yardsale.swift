@@ -17,8 +17,12 @@ class Yardsale {
     let timeOnSite: String
     let cityStateString: String
     var streetAddress: String?
-    var city: String?
-    var state: String?
+    var city: String {
+        return cityStateString.components(separatedBy: ", ")[0]
+    }
+    var state: String {
+        return cityStateString.components(separatedBy: ", ")[1]
+    }
     var timestamp: String?
     var zipcode: Int?
     var gpsCoordLat: Float?
@@ -27,7 +31,7 @@ class Yardsale {
     var yardsaleDate: Date?
 //    var reviews: [Review]?
     
-    init(title: String, yardsaleDescription: String, yardsaleURL: String, imageURL: String, timeOnSite: String, cityStateString: String, streetAddress: String? = nil, city: String? = nil, state: String? = nil, timestamp: String? = nil, zipcode: Int? = nil, gpsCoordLat: Float? = nil, gpsCoordLong: Float? = nil, photoPaths: [String]? = nil, yardsaleDate: Date? = nil) {
+    init(title: String, yardsaleDescription: String, yardsaleURL: String, imageURL: String, timeOnSite: String, cityStateString: String, streetAddress: String? = nil, timestamp: String? = nil, zipcode: Int? = nil, gpsCoordLat: Float? = nil, gpsCoordLong: Float? = nil, photoPaths: [String]? = nil, yardsaleDate: Date? = nil) {
         self.title = title
         self.yardsaleDescription = yardsaleDescription
         self.yardsaleURL = yardsaleURL
@@ -35,8 +39,6 @@ class Yardsale {
         self.timeOnSite = timeOnSite
         self.cityStateString = cityStateString
         self.streetAddress = streetAddress
-        self.city = city
-        self.state = state
         self.timestamp = timestamp
         self.zipcode = zipcode
         self.gpsCoordLat = gpsCoordLat

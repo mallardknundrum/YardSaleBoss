@@ -7,17 +7,27 @@
 //
 
 import UIKit
-import Kanna
-import Alamofire
+
 
 class SearchResultsTableViewController: UITableViewController {
+    
+    var yardsales: [Yardsale]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        HTMLParseController.shared.scrapeKSLClassifiedsYardsales()
         
-        HTMLParseController.shared.fetchYardsalesWithURL()
+//        HTMLParseController.shared.fetchYardsalesWithURL()
+        
+        YardsaleController.shared.fetchYardsales(zipcode: "84116", andDistance: "20") { (yardsaleArray) in
+            self.yardsales = yardsaleArray
+            print("Success!")
+        }
         
     }
     
