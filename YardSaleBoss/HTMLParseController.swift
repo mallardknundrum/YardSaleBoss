@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Kanna
-import Alamofire
+//import Kanna
+//import Alamofire
 import HTMLReader
 
 
@@ -25,74 +25,7 @@ class HTMLParseController {
     let URLString = "http://www.ksl.com/classifieds/search/?keyword=&category%5B%5D=Announcements&subCategory%5B%5D=Garage%2C+Estate%2C+%26+Yard+Sales&priceFrom=&priceTo=&city=&state=UT&zip=&miles=25&sort=0"
     
     var listings: [Yardsale] = []
-    /*
-    func fetchCharts(completionHandler: @escaping (Error?) -> Void) {
-        Alamofire.request(URLString, method: .get)
-            .responseString { responseString in
-                if responseString.result.error != nil {
-                    completionHandler(nil)
-                    return
-                    
-                }
-                guard let htmlAsString = responseString.result.value else {
-                    print("Could not get HTML as String")
-                    completionHandler(nil)
-                    return
-                }
-                
-                let doc = HTMLDocument(string: htmlAsString)
-                
-                // find the table of charts in the HTML
-                let tables = doc.nodes(matchingSelector: "listing")
-                
-                /*
-                var chartsTable:HTMLElement?
-                for table in tables {
-                    if let tableElement = table as? HTMLElement {
-                        if self.isChartsTable(tableElement) {
-                            chartsTable = tableElement
-                            break
-                        }
-                    }
-                }
-                
-                // make sure we found the table of charts
-                guard let tableContents = chartsTable else {
-                    // TODO: create error
-                    let error = Error.errorWithCode(.DataSerializationFailed, failureReason: "Could not find charts table in HTML document")
-                    completionHandler(error)
-                    return
-                }
-                
-                self.charts = []
-                for row in tableContents.children {
-                    if let rowElement = row as? HTMLElement { // TODO: should be able to combine this with loop above
-                        if let newChart = self.parseHTMLRow(rowElement) {
-                            self.charts?.append(newChart)
-                        }
-                    }
-                }*/
-                completionHandler(nil)
-        }
-    }
- */
 
-    
- /*
-    private let titleBeginString ="\" class=\"link\""
-    private let titleEndString = ""
-    private let descriptionBeginString = ""
-    private let descriptionEndString = ""
-    private let listingIDBeginString = ""
-    private let listingIDEndString = ""
-    private let listingURLBeginString = ""
-    private let listingURLEndSTring = ""
-    private let listingPublicationDateStartString = ""
-    private let listingPublicationDateEndString = ""
-    private let listingImagePathBeginString = ""
-    private let listingImagePathEndString = ""
-    
-     */
     let forwardSlashCharacterSet = CharacterSet(charactersIn: "\\")
     
     let url = NSURL(string: "http://www.ksl.com/classifieds/search/?keyword=&category%5B%5D=Announcements&subCategory%5B%5D=Garage%2C+Estate%2C+%26+Yard+Sales&priceFrom=&priceTo=&city=&state=UT&zip=&miles=25&sort=0")
@@ -110,30 +43,30 @@ class HTMLParseController {
                 self.dataString = string
             }
             let doc = HTMLDocument(string: self.dataString)
-            let docx = Kanna.HTML(html: self.dataString, encoding: String.Encoding.utf8)
-            guard let docxUnwrapped = docx else { return }
+//            let docx = Kanna.HTML(html: self.dataString, encoding: String.Encoding.utf8)
+//            guard let docxUnwrapped = docx else { return }
 //            for listing in docxUnwrapped.xpath("//listing-group | //listing") {
 //                print(listing.text)
 //            }
-            var listingGroups = doc.nodes(matchingSelector: "div[class^='listing-group']")
+//            var listingGroups = doc.nodes(matchingSelector: "div[class^='listing-group']")
             var testListings = doc.nodes(matchingSelector: "div[class^='listing-group'] > div[class^='listing']")
-            var listingsIndexCount = listingGroups.count - 1
-            var yardsaleArray: [HTMLElement] = []
+//            var listingsIndexCount = listingGroups.count - 1
+//            var yardsaleArray: [HTMLElement] = []
 
             
-            while listingsIndexCount >= 0 {
-                let index = listingsIndexCount
-                let singleListingsGroup = listingGroups[index]
-                var singleListingsGroupIndex = singleListingsGroup.children.count - 1
-                while singleListingsGroupIndex >= 0 {
-                    let listingsIndex = singleListingsGroupIndex
-                    if let yardsale = singleListingsGroup.child(at: UInt(listingsIndex)) as? HTMLElement {
-                        yardsaleArray.append(yardsale)
-                    }
-                    singleListingsGroupIndex -= 1
-                }
-                listingsIndexCount -= 1
-            }
+//            while listingsIndexCount >= 0 {
+//                let index = listingsIndexCount
+//                let singleListingsGroup = listingGroups[index]
+//                var singleListingsGroupIndex = singleListingsGroup.children.count - 1
+//                while singleListingsGroupIndex >= 0 {
+//                    let listingsIndex = singleListingsGroupIndex
+//                    if let yardsale = singleListingsGroup.child(at: UInt(listingsIndex)) as? HTMLElement {
+//                        yardsaleArray.append(yardsale)
+//                    }
+//                    singleListingsGroupIndex -= 1
+//                }
+//                listingsIndexCount -= 1
+//            }
             
 
             
