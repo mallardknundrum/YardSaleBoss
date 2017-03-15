@@ -1,0 +1,6 @@
+framework module Pods_YardSaleBoss {
+  umbrella header "Pods-YardSaleBoss-umbrella.h"
+
+  export *
+  module * { export * }
+}

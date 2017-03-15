@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C36E0951E76F0F000449189 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C36E0941E76F0F000449189 /* AppDelegate.swift */; };
+		5C36E09A1E76F0F000449189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C36E0981E76F0F000449189 /* Main.storyboard */; };
+		5C36E09D1E76F0F000449189 /* YardSaleBoss.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C36E09B1E76F0F000449189 /* YardSaleBoss.xcdatamodeld */; };
+		5C36E09F1E76F0F000449189 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C36E09E1E76F0F000449189 /* Assets.xcassets */; };
+		5C36E0A21E76F0F000449189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C36E0A01E76F0F000449189 /* LaunchScreen.storyboard */; };
+		5C9010921E7703C50098AFFB /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9010911E7703C50098AFFB /* SearchResultsTableViewController.swift */; };
+		5C9010941E7703DC0098AFFB /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9010931E7703DC0098AFFB /* Stack.swift */; };
+		5C9010961E7704280098AFFB /* Yardsale+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9010951E7704280098AFFB /* Yardsale+Convenience.swift */; };
+		5CDB52101E77176000E87D29 /* HTMLParseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB520F1E77176000E87D29 /* HTMLParseController.swift */; };
+		5CDB52121E772DBB00E87D29 /* Yardsale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB52111E772DBB00E87D29 /* Yardsale.swift */; };
+		7B4F3F79A62395225A0A83CC /* Pods_YardSaleBoss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB326A04FF8D7E0A667617D /* Pods_YardSaleBoss.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0FB326A04FF8D7E0A667617D /* Pods_YardSaleBoss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YardSaleBoss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31D4572E8BEE1ACDF79236F8 /* Pods-YardSaleBoss.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YardSaleBoss.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YardSaleBoss/Pods-YardSaleBoss.debug.xcconfig"; sourceTree = "<group>"; };
+		5C36E0911E76F0F000449189 /* YardSaleBoss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YardSaleBoss.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C36E0941E76F0F000449189 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5C36E0991E76F0F000449189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5C36E09C1E76F0F000449189 /* YardSaleBoss.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YardSaleBoss.xcdatamodel; sourceTree = "<group>"; };
+		5C36E09E1E76F0F000449189 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C36E0A11E76F0F000449189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5C36E0A31E76F0F000449189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C9010911E7703C50098AFFB /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
+		5C9010931E7703DC0098AFFB /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		5C9010951E7704280098AFFB /* Yardsale+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Yardsale+Convenience.swift"; sourceTree = "<group>"; };
+		5CDB520F1E77176000E87D29 /* HTMLParseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParseController.swift; sourceTree = "<group>"; };
+		5CDB52111E772DBB00E87D29 /* Yardsale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yardsale.swift; sourceTree = "<group>"; };
+		A632C5C0A9E87B9E6BC7B4D6 /* Pods-YardSaleBoss.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YardSaleBoss.release.xcconfig"; path = "Pods/Target Support Files/Pods-YardSaleBoss/Pods-YardSaleBoss.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5C36E08E1E76F0EF00449189 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B4F3F79A62395225A0A83CC /* Pods_YardSaleBoss.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C5FF296F40C817A8A33FC2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FB326A04FF8D7E0A667617D /* Pods_YardSaleBoss.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5C36E0881E76F0EF00449189 = {
+			isa = PBXGroup;
+			children = (
+				5C36E0931E76F0F000449189 /* YardSaleBoss */,
+				5C36E0921E76F0F000449189 /* Products */,
+				7A7AEB5D162AD15C6C1A9C7C /* Pods */,
+				4C5FF296F40C817A8A33FC2F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5C36E0921E76F0F000449189 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5C36E0911E76F0F000449189 /* YardSaleBoss.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5C36E0931E76F0F000449189 /* YardSaleBoss */ = {
+			isa = PBXGroup;
+			children = (
+				5C36E0941E76F0F000449189 /* AppDelegate.swift */,
+				5C90108B1E7703400098AFFB /* Models */,
+				5C90108C1E7703470098AFFB /* ModelControllers */,
+				5CDB520E1E77173400E87D29 /* OtherControllers */,
+				5C90108D1E77035F0098AFFB /* ViewControllers */,
+				5C90108F1E7703850098AFFB /* Views */,
+				5C9010901E77038B0098AFFB /* Storyboards */,
+				5C90108A1E7703280098AFFB /* Resources */,
+			);
+			path = YardSaleBoss;
+			sourceTree = "<group>";
+		};
+		5C90108A1E7703280098AFFB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5C36E09E1E76F0F000449189 /* Assets.xcassets */,
+				5C36E0A01E76F0F000449189 /* LaunchScreen.storyboard */,
+				5C36E0A31E76F0F000449189 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5C90108B1E7703400098AFFB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5C36E09B1E76F0F000449189 /* YardSaleBoss.xcdatamodeld */,
+				5CDB52111E772DBB00E87D29 /* Yardsale.swift */,
+				5C9010931E7703DC0098AFFB /* Stack.swift */,
+				5C9010951E7704280098AFFB /* Yardsale+Convenience.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5C90108C1E7703470098AFFB /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ModelControllers;
+			sourceTree = "<group>";
+		};
+		5C90108D1E77035F0098AFFB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C9010911E7703C50098AFFB /* SearchResultsTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5C90108F1E7703850098AFFB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5C9010901E77038B0098AFFB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5C36E0981E76F0F000449189 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		5CDB520E1E77173400E87D29 /* OtherControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5CDB520F1E77176000E87D29 /* HTMLParseController.swift */,
+			);
+			name = OtherControllers;
+			sourceTree = "<group>";
+		};
+		7A7AEB5D162AD15C6C1A9C7C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31D4572E8BEE1ACDF79236F8 /* Pods-YardSaleBoss.debug.xcconfig */,
+				A632C5C0A9E87B9E6BC7B4D6 /* Pods-YardSaleBoss.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5C36E0901E76F0EF00449189 /* YardSaleBoss */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C36E0A61E76F0F000449189 /* Build configuration list for PBXNativeTarget "YardSaleBoss" */;
+			buildPhases = (
+				7E94314B5C8DF1DA287C7B85 /* [CP] Check Pods Manifest.lock */,
+				5C36E08D1E76F0EF00449189 /* Sources */,
+				5C36E08E1E76F0EF00449189 /* Frameworks */,
+				5C36E08F1E76F0EF00449189 /* Resources */,
+				F4C4E2386C0712F6F6D7B88D /* [CP] Embed Pods Frameworks */,
+				A50A01CB1EC0EC9465AF5128 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YardSaleBoss;
+			productName = YardSaleBoss;
+			productReference = 5C36E0911E76F0F000449189 /* YardSaleBoss.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5C36E0891E76F0EF00449189 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Jeremiah Hawks";
+				TargetAttributes = {
+					5C36E0901E76F0EF00449189 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 33GW7EC95V;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5C36E08C1E76F0EF00449189 /* Build configuration list for PBXProject "YardSaleBoss" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5C36E0881E76F0EF00449189;
+			productRefGroup = 5C36E0921E76F0F000449189 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5C36E0901E76F0EF00449189 /* YardSaleBoss */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5C36E08F1E76F0EF00449189 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C36E0A21E76F0F000449189 /* LaunchScreen.storyboard in Resources */,
+				5C36E09F1E76F0F000449189 /* Assets.xcassets in Resources */,
+				5C36E09A1E76F0F000449189 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E94314B5C8DF1DA287C7B85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A50A01CB1EC0EC9465AF5128 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YardSaleBoss/Pods-YardSaleBoss-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4C4E2386C0712F6F6D7B88D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YardSaleBoss/Pods-YardSaleBoss-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5C36E08D1E76F0EF00449189 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9010961E7704280098AFFB /* Yardsale+Convenience.swift in Sources */,
+				5C9010941E7703DC0098AFFB /* Stack.swift in Sources */,
+				5C36E09D1E76F0F000449189 /* YardSaleBoss.xcdatamodeld in Sources */,
+				5C36E0951E76F0F000449189 /* AppDelegate.swift in Sources */,
+				5CDB52101E77176000E87D29 /* HTMLParseController.swift in Sources */,
+				5C9010921E7703C50098AFFB /* SearchResultsTableViewController.swift in Sources */,
+				5CDB52121E772DBB00E87D29 /* Yardsale.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5C36E0981E76F0F000449189 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C36E0991E76F0F000449189 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5C36E0A01E76F0F000449189 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C36E0A11E76F0F000449189 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5C36E0A41E76F0F000449189 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5C36E0A51E76F0F000449189 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5C36E0A71E76F0F000449189 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31D4572E8BEE1ACDF79236F8 /* Pods-YardSaleBoss.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 33GW7EC95V;
+				INFOPLIST_FILE = YardSaleBoss/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JeremiahHawks.YardSaleBoss;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		5C36E0A81E76F0F000449189 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A632C5C0A9E87B9E6BC7B4D6 /* Pods-YardSaleBoss.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 33GW7EC95V;
+				INFOPLIST_FILE = YardSaleBoss/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JeremiahHawks.YardSaleBoss;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5C36E08C1E76F0EF00449189 /* Build configuration list for PBXProject "YardSaleBoss" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C36E0A41E76F0F000449189 /* Debug */,
+				5C36E0A51E76F0F000449189 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C36E0A61E76F0F000449189 /* Build configuration list for PBXNativeTarget "YardSaleBoss" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C36E0A71E76F0F000449189 /* Debug */,
+				5C36E0A81E76F0F000449189 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5C36E09B1E76F0F000449189 /* YardSaleBoss.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5C36E09C1E76F0F000449189 /* YardSaleBoss.xcdatamodel */,
+			);
+			currentVersion = 5C36E09C1E76F0F000449189 /* YardSaleBoss.xcdatamodel */;
+			path = YardSaleBoss.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5C36E0891E76F0EF00449189 /* Project object */;
+}
