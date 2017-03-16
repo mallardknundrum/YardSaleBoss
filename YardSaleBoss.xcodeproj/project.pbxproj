@@ -17,6 +17,11 @@
 		5C9010921E7703C50098AFFB /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9010911E7703C50098AFFB /* SearchResultsTableViewController.swift */; };
 		5C9010941E7703DC0098AFFB /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9010931E7703DC0098AFFB /* Stack.swift */; };
 		5C9010961E7704280098AFFB /* Yardsale+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9010951E7704280098AFFB /* Yardsale+Convenience.swift */; };
+		5C93B8A31E7A1667001FAB4E /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93B8A21E7A1667001FAB4E /* SearchResultsTableViewCell.swift */; };
+		5CAC5DFB1E7AEF7000F47C64 /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC5DFA1E7AEF7000F47C64 /* ImageController.swift */; };
+		5CAC5DFD1E7B09A900F47C64 /* SavedYardsalesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC5DFC1E7B09A900F47C64 /* SavedYardsalesTableViewController.swift */; };
+		5CAC5DFF1E7B0AEF00F47C64 /* SavedYardsalesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC5DFE1E7B0AEF00F47C64 /* SavedYardsalesTableViewCell.swift */; };
+		5CAC5E021E7B1A1700F47C64 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CAC5E011E7B1A1700F47C64 /* CloudKit.framework */; };
 		5CDB52101E77176000E87D29 /* HTMLParseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB520F1E77176000E87D29 /* HTMLParseController.swift */; };
 		5CDB52121E772DBB00E87D29 /* Yardsale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB52111E772DBB00E87D29 /* Yardsale.swift */; };
 		7B4F3F79A62395225A0A83CC /* Pods_YardSaleBoss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB326A04FF8D7E0A667617D /* Pods_YardSaleBoss.framework */; };
@@ -37,6 +42,12 @@
 		5C9010911E7703C50098AFFB /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		5C9010931E7703DC0098AFFB /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		5C9010951E7704280098AFFB /* Yardsale+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Yardsale+Convenience.swift"; sourceTree = "<group>"; };
+		5C93B8A21E7A1667001FAB4E /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
+		5CAC5DFA1E7AEF7000F47C64 /* ImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
+		5CAC5DFC1E7B09A900F47C64 /* SavedYardsalesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedYardsalesTableViewController.swift; sourceTree = "<group>"; };
+		5CAC5DFE1E7B0AEF00F47C64 /* SavedYardsalesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedYardsalesTableViewCell.swift; sourceTree = "<group>"; };
+		5CAC5E001E7B1A1100F47C64 /* YardSaleBoss.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YardSaleBoss.entitlements; sourceTree = "<group>"; };
+		5CAC5E011E7B1A1700F47C64 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5CDB520F1E77176000E87D29 /* HTMLParseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParseController.swift; sourceTree = "<group>"; };
 		5CDB52111E772DBB00E87D29 /* Yardsale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yardsale.swift; sourceTree = "<group>"; };
 		A632C5C0A9E87B9E6BC7B4D6 /* Pods-YardSaleBoss.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YardSaleBoss.release.xcconfig"; path = "Pods/Target Support Files/Pods-YardSaleBoss/Pods-YardSaleBoss.release.xcconfig"; sourceTree = "<group>"; };
@@ -48,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B4F3F79A62395225A0A83CC /* Pods_YardSaleBoss.framework in Frameworks */,
+				5CAC5E021E7B1A1700F47C64 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +69,7 @@
 		4C5FF296F40C817A8A33FC2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5CAC5E011E7B1A1700F47C64 /* CloudKit.framework */,
 				0FB326A04FF8D7E0A667617D /* Pods_YardSaleBoss.framework */,
 			);
 			name = Frameworks;
@@ -83,6 +96,7 @@
 		5C36E0931E76F0F000449189 /* YardSaleBoss */ = {
 			isa = PBXGroup;
 			children = (
+				5CAC5E001E7B1A1100F47C64 /* YardSaleBoss.entitlements */,
 				5C36E0941E76F0F000449189 /* AppDelegate.swift */,
 				5C90108B1E7703400098AFFB /* Models */,
 				5C90108C1E7703470098AFFB /* ModelControllers */,
@@ -128,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				5C9010911E7703C50098AFFB /* SearchResultsTableViewController.swift */,
+				5CAC5DFC1E7B09A900F47C64 /* SavedYardsalesTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -135,6 +150,8 @@
 		5C90108F1E7703850098AFFB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5C93B8A21E7A1667001FAB4E /* SearchResultsTableViewCell.swift */,
+				5CAC5DFE1E7B0AEF00F47C64 /* SavedYardsalesTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -152,6 +169,7 @@
 			children = (
 				5CDB520F1E77176000E87D29 /* HTMLParseController.swift */,
 				5C20C24D1E79EE67008780BE /* NetworkController.swift */,
+				5CAC5DFA1E7AEF7000F47C64 /* ImageController.swift */,
 			);
 			name = OtherControllers;
 			sourceTree = "<group>";
@@ -202,6 +220,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 33GW7EC95V;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -293,11 +319,15 @@
 				5C9010961E7704280098AFFB /* Yardsale+Convenience.swift in Sources */,
 				5C9010941E7703DC0098AFFB /* Stack.swift in Sources */,
 				5C36E09D1E76F0F000449189 /* YardSaleBoss.xcdatamodeld in Sources */,
+				5C93B8A31E7A1667001FAB4E /* SearchResultsTableViewCell.swift in Sources */,
 				5C36E0951E76F0F000449189 /* AppDelegate.swift in Sources */,
+				5CAC5DFB1E7AEF7000F47C64 /* ImageController.swift in Sources */,
 				5CDB52101E77176000E87D29 /* HTMLParseController.swift in Sources */,
+				5CAC5DFD1E7B09A900F47C64 /* SavedYardsalesTableViewController.swift in Sources */,
 				5C20C2501E79F488008780BE /* YardsaleController.swift in Sources */,
 				5C9010921E7703C50098AFFB /* SearchResultsTableViewController.swift in Sources */,
 				5CDB52121E772DBB00E87D29 /* Yardsale.swift in Sources */,
+				5CAC5DFF1E7B0AEF00F47C64 /* SavedYardsalesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,10 +451,11 @@
 			baseConfigurationReference = 31D4572E8BEE1ACDF79236F8 /* Pods-YardSaleBoss.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = YardSaleBoss/YardSaleBoss.entitlements;
 				DEVELOPMENT_TEAM = 33GW7EC95V;
 				INFOPLIST_FILE = YardSaleBoss/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.JeremiahHawks.YardSaleBoss;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JeremiahSHawks.YardSaleBoss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -435,10 +466,11 @@
 			baseConfigurationReference = A632C5C0A9E87B9E6BC7B4D6 /* Pods-YardSaleBoss.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = YardSaleBoss/YardSaleBoss.entitlements;
 				DEVELOPMENT_TEAM = 33GW7EC95V;
 				INFOPLIST_FILE = YardSaleBoss/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.JeremiahHawks.YardSaleBoss;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JeremiahSHawks.YardSaleBoss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

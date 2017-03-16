@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-class Yardsale {
+class Yardsale: Equatable {
     
     let title: String
     let yardsaleDescription: String
@@ -16,7 +17,9 @@ class Yardsale {
     let imageURL: String
     let timeOnSite: String
     let cityStateString: String
+    let kslID: String
     var streetAddress: String?
+    var image: UIImage?
     var city: String {
         return cityStateString.components(separatedBy: ", ")[0]
     }
@@ -31,12 +34,13 @@ class Yardsale {
     var yardsaleDate: Date?
 //    var reviews: [Review]?
     
-    init(title: String, yardsaleDescription: String, yardsaleURL: String, imageURL: String, timeOnSite: String, cityStateString: String, streetAddress: String? = nil, timestamp: String? = nil, zipcode: Int? = nil, gpsCoordLat: Float? = nil, gpsCoordLong: Float? = nil, photoPaths: [String]? = nil, yardsaleDate: Date? = nil) {
+    init(title: String, yardsaleDescription: String, yardsaleURL: String, imageURL: String, timeOnSite: String, cityStateString: String, streetAddress: String? = nil, image: UIImage? = nil, timestamp: String? = nil, zipcode: Int? = nil, gpsCoordLat: Float? = nil, gpsCoordLong: Float? = nil, photoPaths: [String]? = nil, yardsaleDate: Date? = nil, kslID: String) {
         self.title = title
         self.yardsaleDescription = yardsaleDescription
         self.yardsaleURL = yardsaleURL
         self.imageURL = imageURL
         self.timeOnSite = timeOnSite
+        self.image = image
         self.cityStateString = cityStateString
         self.streetAddress = streetAddress
         self.timestamp = timestamp
@@ -45,10 +49,12 @@ class Yardsale {
         self.gpsCoordLong = gpsCoordLong
         self.photoPaths = photoPaths
         self.yardsaleDate = yardsaleDate
+        self.kslID = kslID
     }
-    
-    
-    
-    
-    
+}
+
+extension Yardsale {
+    static func == (lhs: Yardsale, rhs: Yardsale) -> Bool {
+        return lhs.kslID == rhs.kslID
+    }
 }

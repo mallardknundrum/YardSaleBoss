@@ -32,17 +32,33 @@ class YardsaleController {
             
             for yardsale in listingsHTMLElementArray {
                 guard let imagePathEnd = (yardsale.nodes(matchingSelector: "div.photo > a > img")[0].attributes["src"]) else { return }
-                let imagePath = "http:" + imagePathEnd
+                var imagePath = ""
+                if imagePathEnd == "/classifieds/images/responsive/noimage-bike-400x300.png"	{
+                    imagePath = "http://www.ksl.com" + imagePathEnd
+                } else {
+                    imagePath = "http:" + imagePathEnd
+                }
+                guard let kslID = yardsale.attributes["data-item-id"] else { return }
                 guard let adPathEnd = yardsale.nodes(matchingSelector: "h2 > a")[0].attributes["href"] else { return }
                 let adpath = "http://ksl.com" + adPathEnd
-                let yardSaleDescription = yardsale.nodes(matchingSelector: "div.description.listing-detail-line > div")[0].textContent.trimmingCharacters(in: .whitespacesAndNewlines).trimmingCharacters(in: self.backSlashCharacterSet)
+                let yardSaleDescription = yardsale.nodes(matchingSelector: "div.description.listing-detail-line > div")[0].textContent.replacingOccurrences(of: "\tmore", with: "", options: .literal, range: nil).trimmingCharacters(in: .whitespacesAndNewlines).trimmingCharacters(in: self.backSlashCharacterSet)
                 guard let cityState = yardsale.firstNode(matchingSelector: "div.listing-detail-line > span.address")?.textContent.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
                 let title = yardsale.nodes(matchingSelector: "h2")[0].textContent.trimmingCharacters(in: .whitespacesAndNewlines)
                 guard let timeOnSite = yardsale.firstNode(matchingSelector: "div.listing-detail-line > span.timeOnSite")?.textContent.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
-                let yardsale = Yardsale(title: title, yardsaleDescription: yardSaleDescription, yardsaleURL: adpath, imageURL: imagePath, timeOnSite: timeOnSite, cityStateString: cityState)
+                let yardsale = Yardsale(title: title, yardsaleDescription: yardSaleDescription, yardsaleURL: adpath, imageURL: imagePath, timeOnSite: timeOnSite, cityStateString: cityState, kslID: kslID)
                 listings.append(yardsale)
             }
-            completion(listings)
+            let group = DispatchGroup()
+            for yardsale in listings {
+                group.enter()
+                ImageController.image(forURL: yardsale.imageURL, completion: { (image) in
+                    yardsale.image = image
+                    group.leave()
+                })
+            }
+            group.notify(queue: DispatchQueue.main, execute: {
+                completion(listings)
+                })
             return
         }
     }
