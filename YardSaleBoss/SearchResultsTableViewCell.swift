@@ -26,27 +26,39 @@ class SearchResultsTableViewCell: UITableViewCell {
         if SavedYardsalesTableViewCell.yardsales.contains(yardsale) {
             guard let index = SavedYardsalesTableViewCell.yardsales.index(of: yardsale) else { return }
             SavedYardsalesTableViewCell.yardsales.remove(at: index)
-            selectedButton.setTitle("", for: .normal)
-        } else {
+            updateViews()
+        } else if !SavedYardsalesTableViewCell.yardsales.contains(yardsale) {
             SavedYardsalesTableViewCell.yardsales.append(yardsale)
-            selectedButton.setTitle("Selected", for: .normal)
+            updateViews()
         }
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//
+//        // Configure the view for the selected state
+//    }
     
     func updateViews() {
-        guard let description = yardsale?.yardsaleDescription, let cityState = yardsale?.cityStateString, let title = yardsale?.title else { return }
-        if let image = yardsale?.image {
+        selectedButton.isEnabled = true
+        guard let yardsale = yardsale else { return }
+        let description = yardsale.yardsaleDescription
+        let cityState = yardsale.cityStateString
+        let title = yardsale.title
+        if let image = yardsale.image {
             yardsaleImageView.image = image
         }
         yardsaleTitleLabel.text = title
         yardsaleCityStateTextLabel.text = cityState
         yardsaleDescriptionTextView.text = description
+        if SavedYardsalesTableViewCell.yardsales.contains(yardsale) {
+            selectedButton.setTitle("Selected", for: .normal)
+            selectedButton.backgroundColor = UIColor.gray
+            selectedButton.titleLabel?.textColor = UIColor.gray
+        } else if !SavedYardsalesTableViewCell.yardsales.contains(yardsale) {
+            selectedButton.setTitle("", for: .normal)
+            selectedButton.backgroundColor = UIColor.clear
+            selectedButton.titleLabel?.textColor = UIColor.gray
+        }
     }
-
 }

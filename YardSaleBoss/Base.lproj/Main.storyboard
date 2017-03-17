@@ -158,7 +158,11 @@
                                                                 </imageView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-Rc-Q56">
                                                                     <rect key="frame" x="0.0" y="0.0" width="195" height="146"/>
+                                                                    <color key="backgroundColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                                    <state key="normal" title="Selected">
+                                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
                                                                     <connections>
                                                                         <action selector="selectButtonTapped:" destination="ezV-aw-u7d" eventType="touchUpInside" id="KZQ-VU-5nh"/>
                                                                     </connections>
@@ -256,20 +260,20 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TuY-1V-uKL">
-                                            <rect key="frame" x="8" y="3" width="33.666666666666664" height="33.666666666666664"/>
+                                            <rect key="frame" x="8" y="3" width="34" height="34"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="TuY-1V-uKL" secondAttribute="height" multiplier="1:1" id="qmM-Ja-sIh"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HjB-0O-aBN">
-                                            <rect key="frame" x="49.666666666666657" y="3" width="45.333333333333343" height="33.666666666666664"/>
+                                            <rect key="frame" x="50" y="3" width="45" height="34"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="HjB-0O-aBN" secondAttribute="height" multiplier="400:300" id="h51-Cc-upN"/>
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Txp-gK-vRF">
-                                            <rect key="frame" x="103" y="3" width="303" height="33.666666666666664"/>
+                                            <rect key="frame" x="103" y="3" width="303" height="34"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdl-DD-Wsd">
                                                     <rect key="frame" x="0.0" y="0.0" width="303" height="13"/>
@@ -278,7 +282,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityState" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElD-8B-ZTz">
-                                                    <rect key="frame" x="0.0" y="21" width="303" height="12.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="21" width="303" height="13"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
