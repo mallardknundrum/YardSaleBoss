@@ -29,12 +29,12 @@ class SavedYardsalesTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SavedYardsalesTableViewCell.yardsales.count
+        return YardsaleController.shared.savedYardsales.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "savedYardsaleCell", for: indexPath) as? SavedYardsalesTableViewCell else { return UITableViewCell() }
-        cell.yardsale = SavedYardsalesTableViewCell.yardsales[indexPath.row]
+        cell.yardsale = YardsaleController.shared.savedYardsales[indexPath.row]
         
         return cell
     }
@@ -50,7 +50,7 @@ class SavedYardsalesTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let dvc = segue.destination as? DetailViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        let yardsale = SavedYardsalesTableViewCell.yardsales[indexPath.row]
+        let yardsale = YardsaleController.shared.savedYardsales[indexPath.row]
         dvc.yardsale = yardsale
     }
 }

@@ -445,7 +445,13 @@
                             <constraint firstItem="6pw-Mr-ejf" firstAttribute="top" secondItem="t58-7A-Hjg" secondAttribute="bottom" id="wGs-vl-g0V"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="vUi-4w-voB"/>
+                    <navigationItem key="navigationItem" title="Title" id="vUi-4w-voB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5qZ-6p-xz4">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="0od-SP-EYD" id="znQ-Pj-3zj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="6pw-Mr-ejf" id="bp4-xc-Y8Q"/>
                         <outlet property="yardsaleCityStateLabel" destination="nDZ-eG-sZK" id="P2u-qJ-0D1"/>

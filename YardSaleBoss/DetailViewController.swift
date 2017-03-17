@@ -25,6 +25,21 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let yardsale = yardsale else { return }
+        yardsale.streetAddress = yardsaleStreetAddressTextField.text
+        let yardsales = YardsaleController.shared.yardsales
+        let savedYardsales = YardsaleController.shared.savedYardsales
+        if yardsales.contains(yardsale) {
+            guard let index = yardsales.index(of: yardsale) else { return }
+            YardsaleController.shared.yardsales[index].streetAddress = yardsaleStreetAddressTextField.text
+        }
+        if savedYardsales.contains(yardsale) {
+            guard let index = yardsales.index(of: yardsale) else { return }
+            YardsaleController.shared.savedYardsales[index].streetAddress = yardsaleStreetAddressTextField.text
+            
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +54,9 @@ class DetailViewController: UIViewController {
         guard let yardsale = yardsale else { return }
         if !isViewLoaded {
             loadView()
+        }
+        if yardsale.streetAddress != nil {
+            yardsaleStreetAddressTextField.text = yardsale.streetAddress
         }
         yardsaleImageView.image = yardsale.image
         yardsaleTitleLabel.text = yardsale.title

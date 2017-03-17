@@ -23,21 +23,15 @@ class SearchResultsTableViewCell: UITableViewCell {
 
     @IBAction func selectButtonTapped(_ sender: Any) {
         guard let yardsale = yardsale else { return }
-        if SavedYardsalesTableViewCell.yardsales.contains(yardsale) {
-            guard let index = SavedYardsalesTableViewCell.yardsales.index(of: yardsale) else { return }
-            SavedYardsalesTableViewCell.yardsales.remove(at: index)
+        if YardsaleController.shared.savedYardsales.contains(yardsale) {
+            guard let index = YardsaleController.shared.savedYardsales.index(of: yardsale) else { return }
+            YardsaleController.shared.savedYardsales.remove(at: index)
             updateViews()
-        } else if !SavedYardsalesTableViewCell.yardsales.contains(yardsale) {
-            SavedYardsalesTableViewCell.yardsales.append(yardsale)
+        } else if !YardsaleController.shared.savedYardsales.contains(yardsale) {
+            YardsaleController.shared.savedYardsales.append(yardsale)
             updateViews()
         }
     }
-    
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
     
     func updateViews() {
         selectedButton.isEnabled = true
@@ -51,11 +45,11 @@ class SearchResultsTableViewCell: UITableViewCell {
         yardsaleTitleLabel.text = title
         yardsaleCityStateTextLabel.text = cityState
         yardsaleDescriptionTextView.text = description
-        if SavedYardsalesTableViewCell.yardsales.contains(yardsale) {
+        if YardsaleController.shared.savedYardsales.contains(yardsale) {
             selectedButton.setTitle("Selected", for: .normal)
             selectedButton.backgroundColor = UIColor.gray
             selectedButton.titleLabel?.textColor = UIColor.gray
-        } else if !SavedYardsalesTableViewCell.yardsales.contains(yardsale) {
+        } else if !YardsaleController.shared.savedYardsales.contains(yardsale) {
             selectedButton.setTitle("", for: .normal)
             selectedButton.backgroundColor = UIColor.clear
             selectedButton.titleLabel?.textColor = UIColor.gray

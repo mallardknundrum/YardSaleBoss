@@ -13,23 +13,10 @@ class SavedYardsalesTableViewCell: UITableViewCell {
     @IBOutlet weak var yardsaleCityStateLabel: UILabel!
     @IBOutlet weak var yardsaleTitleLabel: UILabel!
     
-    static var yardsales: [Yardsale] = []
-    
     var yardsale: Yardsale? {
         didSet {
             updateViews()
         }
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func updateViews() {

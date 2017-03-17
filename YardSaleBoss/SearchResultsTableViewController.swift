@@ -17,24 +17,9 @@ class SearchResultsTableViewController: UITableViewController {
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var searchRadiusTextField: UITextField!
     
-    
-    var yardsales: [Yardsale]? {
-        didSet {
-            SearchResultsTableViewController.sharedYardsales = yardsales
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
-    static var sharedYardsales: [Yardsale]?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        YardsaleController.shared.fetchYardsales(zipcode: "84116", andDistance: "20") { (yardsaleArray) in
-//            self.yardsales = yardsaleArray
-//            print("Success!")
-//        }
+
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
     }
@@ -65,23 +50,24 @@ class SearchResultsTableViewController: UITableViewController {
             searchRadius = searchRadiusTextField.text!
         }
         YardsaleController.shared.fetchYardsales(withCity: city, state: state, zipcode: zipcode, andDistance: searchRadius) { (yardsaleArray) in
-            self.yardsales = yardsaleArray
+            YardsaleController.shared.yardsales = yardsaleArray
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
         view.endEditing(true)
-        tableView.reloadData()
     }
-    
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let yardsales = yardsales else { return 0 }
+        let yardsales = YardsaleController.shared.yardsales
         return yardsales.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath) as? SearchResultsTableViewCell else { return UITableViewCell() }
-        cell.yardsale = yardsales?[indexPath.row]
+        cell.yardsale = YardsaleController.shared.yardsales[indexPath.row]
         return cell
     }
     
@@ -89,12 +75,5 @@ class SearchResultsTableViewController: UITableViewController {
         if editingStyle == .delete {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-    }
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
 }

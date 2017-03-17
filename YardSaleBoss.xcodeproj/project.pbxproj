@@ -11,6 +11,7 @@
 		5C20C2501E79F488008780BE /* YardsaleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20C24F1E79F488008780BE /* YardsaleController.swift */; };
 		5C2ECF8F1E7C3A8B000F1D4B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2ECF8E1E7C3A8B000F1D4B /* DetailViewController.swift */; };
 		5C2ECF911E7C5839000F1D4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2ECF901E7C5839000F1D4B /* User.swift */; };
+		5C2ECF931E7C79B5000F1D4B /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C2ECF921E7C79B5000F1D4B /* APIKeys.plist */; };
 		5C36E0951E76F0F000449189 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C36E0941E76F0F000449189 /* AppDelegate.swift */; };
 		5C36E09A1E76F0F000449189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C36E0981E76F0F000449189 /* Main.storyboard */; };
 		5C36E09D1E76F0F000449189 /* YardSaleBoss.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C36E09B1E76F0F000449189 /* YardSaleBoss.xcdatamodeld */; };
@@ -36,6 +37,7 @@
 		5C20C24F1E79F488008780BE /* YardsaleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YardsaleController.swift; sourceTree = "<group>"; };
 		5C2ECF8E1E7C3A8B000F1D4B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5C2ECF901E7C5839000F1D4B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5C2ECF921E7C79B5000F1D4B /* APIKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		5C36E0911E76F0F000449189 /* YardSaleBoss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YardSaleBoss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C36E0941E76F0F000449189 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C36E0991E76F0F000449189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				5C36E09E1E76F0F000449189 /* Assets.xcassets */,
 				5C36E0A01E76F0F000449189 /* LaunchScreen.storyboard */,
 				5C36E0A31E76F0F000449189 /* Info.plist */,
+				5C2ECF921E7C79B5000F1D4B /* APIKeys.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C36E0A21E76F0F000449189 /* LaunchScreen.storyboard in Resources */,
+				5C2ECF931E7C79B5000F1D4B /* APIKeys.plist in Resources */,
 				5C36E09F1E76F0F000449189 /* Assets.xcassets in Resources */,
 				5C36E09A1E76F0F000449189 /* Main.storyboard in Resources */,
 			);

@@ -13,6 +13,9 @@ class YardsaleController {
     
     static let shared = YardsaleController()
     
+    var yardsales: [Yardsale] = []
+    var savedYardsales: [Yardsale] = []
+    
     let backSlashCharacterSet = CharacterSet(charactersIn: "\u{005C}")
     
     func fetchYardsales(withCity city: String = "", state: String = "", zipcode: String = "", andDistance distance: String = "", completion: @escaping ([Yardsale]) -> Void) {
