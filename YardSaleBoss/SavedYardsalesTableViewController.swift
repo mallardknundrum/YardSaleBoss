@@ -48,7 +48,9 @@ class SavedYardsalesTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        guard let dvc = segue.destination as? DetailViewController else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let yardsale = SavedYardsalesTableViewCell.yardsales[indexPath.row]
+        dvc.yardsale = yardsale
     }
 }
