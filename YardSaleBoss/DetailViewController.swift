@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
             YardsaleController.shared.yardsales[index].streetAddress = yardsaleStreetAddressTextField.text
         }
         if savedYardsales.contains(yardsale) {
-            guard let index = yardsales.index(of: yardsale) else { return }
+            guard let index = savedYardsales.index(of: yardsale) else { return }
             YardsaleController.shared.savedYardsales[index].streetAddress = yardsaleStreetAddressTextField.text
             
         }

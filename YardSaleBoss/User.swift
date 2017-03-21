@@ -10,7 +10,7 @@ import Foundation
 import CloudKit
 
 class User {
-    var startAddress: String?
-    var endAddress: String?
-    var savedYardsales: [CKReference] = []
+    static var startAddress = "644 W N Temple Salt Lake City UT"
+    static var endAddress = "655 W N Temple Salt Lake City UT"
+    static var savedYardsales: [CKReference] = []
 }

@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YardSaleBoss/DetailViewController.swift"
-            timestampString = "511473714.949526"
+            filePath = "YardSaleBoss/GoogleDirectionsController.swift"
+            timestampString = "511819706.152034"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "updateViews()"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "fetchGoogleMapsLink()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,45 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YardSaleBoss/SavedYardsalesTableViewController.swift"
-            timestampString = "511460060.264715"
+            filePath = "YardSaleBoss/GoogleDirectionsController.swift"
+            timestampString = "511819706.152034"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YardSaleBoss/DetailViewController.swift"
-            timestampString = "511464626.224299"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "DetailViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YardSaleBoss/SearchResultsTableViewCell.swift"
-            timestampString = "511471690.762389"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "selectButtonTapped(_:)"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "fetchGoogleMapsLink()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
