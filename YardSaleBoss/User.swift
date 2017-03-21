@@ -11,6 +11,6 @@ import CloudKit
 
 class User {
     static var startAddress = "644 W N Temple Salt Lake City UT"
-    static var endAddress = "655 W N Temple Salt Lake City UT"
+    static var endAddress = "644 W N Temple Salt Lake City UT"
     static var savedYardsales: [CKReference] = []
 }

@@ -6,7 +6,8 @@
 //  Copyright © 2017 Jeremiah Hawks. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
 
 class GoogleDirectionsController {
     
@@ -81,11 +82,12 @@ class GoogleDirectionsController {
             guard let routesArray = jsonDictionary["routes"] as? [Any] else { return }
             guard let route = routesArray[0] as? [String: Any] else { return }
             guard let indexes = route["waypoint_order"] as? [Int] else { return }
-//            guard let indexes = (jsonDictionary["routes"]?[0]["waypoint_order"]) as? [Int] else {
-//                print("There was an error accessing the JSONDictionary. \n\(error?.localizedDescription)")
-//                return }
             let yardsalesReordered = self.reorderYardsales(withIndexes: indexes)
-            self.googleMapsLink = self.buildGoogleMapsLink(withYardsales: yardsalesReordered)
+            self.googleMapsLink = self.buildGoogleMapsLink(withYardsales: yardsalesReordered).replacingOccurrences(of: "+", with: "%20")
+            if let url = URL(string: self.googleMapsLink) {
+                UIApplication.shared.open(url)
+            }
+            
             print(self.googleMapsLink)
         }
     }

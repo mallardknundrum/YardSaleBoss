@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YardSaleBoss/GoogleDirectionsController.swift"
-            timestampString = "511819706.152034"
+            timestampString = "511821800.916346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "fetchGoogleMapsLink()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YardSaleBoss/GoogleDirectionsController.swift"
-            timestampString = "511819706.152034"
+            timestampString = "511821800.916346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "fetchGoogleMapsLink()"
             landmarkType = "7">
          </BreakpointContent>
