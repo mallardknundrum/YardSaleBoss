@@ -37,7 +37,9 @@ class DetailViewController: UIViewController {
         if savedYardsales.contains(yardsale) {
             guard let index = savedYardsales.index(of: yardsale) else { return }
             YardsaleController.shared.savedYardsales[index].streetAddress = yardsaleStreetAddressTextField.text
-            
+        }
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
         }
     }
 
@@ -47,8 +49,6 @@ class DetailViewController: UIViewController {
         scrollView.contentInset.bottom = 290
         scrollView.contentInset.top = 0
     }
-    
-    
     
     func updateViews() {
         guard let yardsale = yardsale else { return }

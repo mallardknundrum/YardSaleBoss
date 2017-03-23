@@ -41,7 +41,8 @@ class YardsaleController {
                 } else {
                     imagePath = "http:" + imagePathEnd
                 }
-                guard let kslID = yardsale.attributes["data-item-id"] else { return }
+                guard var kslID = yardsale.attributes["data-item-id"] else { return }
+                kslID = "KSL" + kslID
                 guard let adPathEnd = yardsale.nodes(matchingSelector: "h2 > a")[0].attributes["href"] else { return }
                 let adpath = "http://ksl.com" + adPathEnd
                 let yardSaleDescription = yardsale.nodes(matchingSelector: "div.description.listing-detail-line > div")[0].textContent.replacingOccurrences(of: "\tmore", with: "", options: .literal, range: nil).trimmingCharacters(in: .whitespacesAndNewlines).trimmingCharacters(in: self.backSlashCharacterSet)
