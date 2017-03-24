@@ -46,10 +46,9 @@ class SearchResultsTableViewCell: UITableViewCell {
         yardsaleCityStateTextLabel.text = cityState
         yardsaleDescriptionTextView.text = description
         if YardsaleController.shared.savedYardsales.contains(yardsale) {
-            selectedButton.setTitle("Selected", for: .normal)
-            selectedButton.backgroundColor = UIColor.gray
-            selectedButton.titleLabel?.textColor = UIColor.gray
+            selectedButton.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: .normal)
         } else if !YardsaleController.shared.savedYardsales.contains(yardsale) {
+            selectedButton.setBackgroundImage(nil, for: .normal)
             selectedButton.setTitle("", for: .normal)
             selectedButton.backgroundColor = UIColor.clear
             selectedButton.titleLabel?.textColor = UIColor.gray

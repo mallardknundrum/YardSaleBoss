@@ -10,7 +10,16 @@ import UIKit
 
 class DirectionsViewController: UIViewController {
 
+    @IBOutlet weak var startingAddressTextField: UITextField!
+    @IBOutlet weak var endingAddressTextField: UITextField!
+    
     @IBAction func directionsButtonTapped(_ sender: Any) {
+        if let startingAddress = startingAddressTextField.text, let endingAddress = endingAddressTextField.text {
+            if startingAddress != "" && endingAddress != "" {
+                User.startAddress = startingAddress.replacingOccurrences(of: ",", with: "")
+                User.endAddress = endingAddress.replacingOccurrences(of: ",", with: "")
+            }
+        }
         GoogleDirectionsController.shared.fetchGoogleMapsLink()
         
     }

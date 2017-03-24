@@ -8,9 +8,22 @@
 
 import Foundation
 import CloudKit
+import CoreData
 
 class User {
-    static var startAddress = "644 W N Temple Salt Lake City UT"
-    static var endAddress = "644 W N Temple Salt Lake City UT"
-    static var savedYardsales: [CKReference] = []
+    static var startAddress = ""
+    static var endAddress = ""
+//    static var savedYardsaleIDs: [String] {
+//        
+//    }
 }
+
+
+//extension User {
+//    convenience init(startAddress: String, endAddress: String, savedYardsaleIDs: String, context: NSManagedObjectContext = CoreDataStack.context) {
+//        self.init(context: context)
+//        self.startAddress = startAddress
+//        self.endAddress = endAddress
+//        self.savedYardsales: savedYardsales
+//    }
+//}

@@ -16,7 +16,7 @@ class Yardsale: Equatable {
     let yardsaleURL: String
     let imageURL: String
     let timeOnSite: String
-    let cityStateString: String
+    var cityStateString: String
     let kslID: String
     var streetAddress: String?
     var image: UIImage?
