@@ -16,6 +16,9 @@ class SavedYardsalesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let savedYS = UserDefaults.standard.array(forKey: "savedYardSaleIDs") as? [String] {
+            User.savedYardsaleIDs = savedYS
+        }
         tableView.reloadData()
     }
     

@@ -22,13 +22,25 @@ class SearchResultsTableViewCell: UITableViewCell {
     }
 
     @IBAction func selectButtonTapped(_ sender: Any) {
+        
         guard let yardsale = yardsale else { return }
         if YardsaleController.shared.savedYardsales.contains(yardsale) {
             guard let index = YardsaleController.shared.savedYardsales.index(of: yardsale) else { return }
             YardsaleController.shared.savedYardsales.remove(at: index)
+            if User.savedYardsaleIDs.contains(yardsale.kslID) {
+                guard let index = User.savedYardsaleIDs.index(of: yardsale.kslID) else { return }
+                User.savedYardsaleIDs.remove(at: index)
+                UserDefaults.standard.set(User.savedYardsaleIDs, forKey: "savedYardsaleIDs")
+                print(User.savedYardsaleIDs)
+                UserDefaults.standard.synchronize()
+            }
             updateViews()
         } else if !YardsaleController.shared.savedYardsales.contains(yardsale) {
             YardsaleController.shared.savedYardsales.append(yardsale)
+            User.savedYardsaleIDs.append(yardsale.kslID)
+            UserDefaults.standard.set(User.savedYardsaleIDs, forKey: "savedYardsaleIDs")
+            print(User.savedYardsaleIDs.description)
+            UserDefaults.standard.synchronize()
             updateViews()
         }
     }

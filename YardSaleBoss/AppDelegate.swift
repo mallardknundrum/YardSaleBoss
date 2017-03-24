@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared().isEnabled = true
+        if let savedYardsaleIDs = UserDefaults.standard.array(forKey: "savedYardsaleIDs") as? [String] {
+            User.savedYardsaleIDs = savedYardsaleIDs
+            UserDefaults.standard.synchronize()
+        }
         return true
     }
 

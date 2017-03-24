@@ -13,11 +13,8 @@ import CoreData
 class User {
     static var startAddress = ""
     static var endAddress = ""
-//    static var savedYardsaleIDs: [String] {
-//        
-//    }
+    static var savedYardsaleIDs: [String] = []
 }
-
 
 //extension User {
 //    convenience init(startAddress: String, endAddress: String, savedYardsaleIDs: String, context: NSManagedObjectContext = CoreDataStack.context) {

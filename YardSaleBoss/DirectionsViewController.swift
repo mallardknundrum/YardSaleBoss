@@ -16,8 +16,11 @@ class DirectionsViewController: UIViewController {
     @IBAction func directionsButtonTapped(_ sender: Any) {
         if let startingAddress = startingAddressTextField.text, let endingAddress = endingAddressTextField.text {
             if startingAddress != "" && endingAddress != "" {
-                User.startAddress = startingAddress.replacingOccurrences(of: ",", with: "")
-                User.endAddress = endingAddress.replacingOccurrences(of: ",", with: "")
+                User.startAddress = startingAddress.replacingOccurrences(of: ",", with: " ")
+                User.endAddress = endingAddress.replacingOccurrences(of: ",", with: " ")
+                UserDefaults.standard.set(startingAddress.replacingOccurrences(of: ",", with: " "), forKey: "startingAddress")
+                UserDefaults.standard.set(endingAddress.replacingOccurrences(of: ",", with: " "), forKey: "endingAddress")
+                UserDefaults.standard.synchronize()
             }
         }
         GoogleDirectionsController.shared.fetchGoogleMapsLink()
@@ -25,8 +28,12 @@ class DirectionsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if let start = UserDefaults.standard.string(forKey: "startingAddress") {
+            self.startingAddressTextField.text = start
+        }
+        if let end = UserDefaults.standard.string(forKey: "endingAddress") {
+            self.endingAddressTextField.text = end
+        }
     }
 
     override func didReceiveMemoryWarning() {

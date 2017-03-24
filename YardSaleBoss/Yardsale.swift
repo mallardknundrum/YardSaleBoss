@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CloudKit
 
 class Yardsale: Equatable {
     
@@ -56,5 +57,13 @@ class Yardsale: Equatable {
 extension Yardsale {
     static func == (lhs: Yardsale, rhs: Yardsale) -> Bool {
         return lhs.kslID == rhs.kslID
+    }
+}
+
+extension CKRecord {
+    convenience init(_ yardsale: Yardsale) {
+        let recordID = CKRecordID(recordName: yardsale.kslID)
+        self.init(recordType: "Yardsale", recordID: recordID)
+        
     }
 }
