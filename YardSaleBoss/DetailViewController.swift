@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class DetailViewController: UIViewController {
     
@@ -50,6 +51,27 @@ class DetailViewController: UIViewController {
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
         }
+        let ckRecord = CKRecord(yardsale)
+        CloudKitManager.shared.saveRecord(ckRecord) { (record, error) in
+            if let error = error {
+                print("problem saving CKRecord \n\(error.localizedDescription)")
+            }
+            if let record = record {
+                print("Succesfully saved record to cloud")
+            }
+        }
+        CloudKitManager.shared.modifyRecords([ckRecord], perRecordCompletion: { (record, error) in
+            if let error = error {
+                print("failed to update CKR")
+            }
+            if let record = record {
+                print ("success updating record")
+            }
+        }) { (records, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     
@@ -59,35 +81,35 @@ class DetailViewController: UIViewController {
         updateViews()
 //        scrollView.contentInset.bottom = 290
 //        scrollView.contentInset.top = 0
-        NotificationCenter.default.addObserver(self,
-                                                         selector: #selector(self.keyboardNotification(notification:)),
-                                                         name: NSNotification.Name.UIKeyboardWillChangeFrame,
-                                                         object: nil)
+//        NotificationCenter.default.addObserver(self,
+//                                                         selector: #selector(self.keyboardNotification(notification:)),
+//                                                         name: NSNotification.Name.UIKeyboardWillChangeFrame,
+//                                                         object: nil)
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self)
+//        NotificationCenter.default.removeObserver(self)
     }
     
-    func keyboardNotification(notification: NSNotification) {
-        if let userInfo = notification.userInfo {
-            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
-            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
-            if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
-                self.keyboardHeightLayoutConstraint?.constant = 0.0
-            } else {
-                self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
-            }
-            UIView.animate(withDuration: duration,
-                           delay: TimeInterval(0),
-                           options: animationCurve,
-                           animations: { self.view.layoutIfNeeded() },
-                           completion: nil)
-        }
-    }
+//    func keyboardNotification(notification: NSNotification) {
+//        if let userInfo = notification.userInfo {
+//            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+//            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+//            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+//            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
+//            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+//            if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
+//                self.keyboardHeightLayoutConstraint?.constant = 0.0
+//            } else {
+//                self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+//            }
+//            UIView.animate(withDuration: duration,
+//                           delay: TimeInterval(0),
+//                           options: animationCurve,
+//                           animations: { self.view.layoutIfNeeded() },
+//                           completion: nil)
+//        }
+//    }
     
     func updateViews() {
         guard let yardsale = yardsale else { return }

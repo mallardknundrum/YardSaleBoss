@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 
 class SearchResultsTableViewController: UITableViewController {
@@ -22,6 +23,28 @@ class SearchResultsTableViewController: UITableViewController {
 
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
+        
+        let savedYardsaleIDs = User.savedYardsaleIDs
+        var savedYardsaleReference: [CKReference] = []
+        for id in savedYardsaleIDs {
+            savedYardsaleReference.append(CKReference(recordID: CKRecordID(recordName: id), action: .none))
+        }
+
+        let predicate = NSPredicate(format: "recordID IN %@", savedYardsaleReference)
+        let query = CKQuery(recordType: "Yardsale", predicate: predicate)
+
+        CloudKitManager.shared.publicDatabase.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            if let records = records {
+                for record in records {
+                    if let yardsale = Yardsale(withCKRecord: record) {
+                        YardsaleController.shared.savedYardsales.append(yardsale)
+                    }
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

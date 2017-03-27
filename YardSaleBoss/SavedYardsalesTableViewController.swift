@@ -47,6 +47,7 @@ class SavedYardsalesTableViewController: UITableViewController {
             let yardsale = YardsaleController.shared.savedYardsales[indexPath.row]
             YardsaleController.shared.yardsales.insert(yardsale, at: 0)
             YardsaleController.shared.savedYardsales.remove(at: indexPath.row)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

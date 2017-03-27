@@ -18,12 +18,15 @@ private let ModificationDateKey = "modificationDate"
 
 class CloudKitManager {
     
+    
     let publicDatabase = CKContainer.default().publicCloudDatabase
     let privateDatabase = CKContainer.default().privateCloudDatabase
     
     init() {
         checkCloudKitAvailability()
     }
+    
+    static let shared = CloudKitManager()
     
     // MARK: - User Info Discovery
     
