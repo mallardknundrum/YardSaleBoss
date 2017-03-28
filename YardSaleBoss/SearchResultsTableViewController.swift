@@ -17,6 +17,7 @@ class SearchResultsTableViewController: UITableViewController {
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var searchRadiusTextField: UITextField!
+    @IBOutlet weak var switchState: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,7 @@ class SearchResultsTableViewController: UITableViewController {
         CloudKitManager.shared.fetchRecords(forRecordIDs: savedYardsaleReference) { (yardsales) in
             YardsaleController.shared.savedYardsales = yardsales
         }
+        searchSwitchTriggered(switchState)
 
     }
     
@@ -48,6 +50,29 @@ class SearchResultsTableViewController: UITableViewController {
     }
     
     
+    @IBAction func searchSwitchTriggered(_ sender: UISwitch) {
+        if switchState.isOn {
+            cityTextField.isEnabled = false
+            cityTextField.isHidden = true
+            stateTextField.isEnabled = false
+            stateTextField.isHidden = true
+            zipcodeTextField.isEnabled = true
+            zipcodeTextField.isHidden = false
+            zipcodeTextField.text = ""
+            stateTextField.text = ""
+            cityTextField.text = ""
+        } else if !switchState.isOn {
+            cityTextField.isEnabled = true
+            cityTextField.isHidden = false
+            stateTextField.isEnabled = true
+            stateTextField.isHidden = false
+            zipcodeTextField.isEnabled = false
+            zipcodeTextField.isHidden = true
+            zipcodeTextField.text = ""
+            stateTextField.text = ""
+            cityTextField.text = ""
+        }
+    }
     
     // MARK: - Search Function
     @IBAction func searchButtonTapped(_ sender: Any) {
@@ -85,6 +110,12 @@ class SearchResultsTableViewController: UITableViewController {
                 var indexes: [Int] = []
                 for (index, yardsale) in kslYardsales.enumerated() {
                     if cloudYardsales.contains(yardsale) {
+//                        if let cloudYardsaleIndex = cloudYardsales.index(of: yardsale) {
+//                            let cloudYardsale = cloudYardsales[cloudYardsaleIndex]
+//                            kslYardsales.remove(at: index)
+//                            kslYardsales.insert(cloudYardsale, at: index)
+//                            
+//                        }
                         indexes.append(index)
                     }
                 }

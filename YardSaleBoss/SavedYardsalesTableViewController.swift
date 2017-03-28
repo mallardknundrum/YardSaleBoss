@@ -51,6 +51,14 @@ class SavedYardsalesTableViewController: UITableViewController {
                 YardsaleController.shared.yardsales[0].insert(yardsale, at: 0)
             }
             YardsaleController.shared.savedYardsales.remove(at: indexPath.row)
+            if User.savedYardsaleIDs.contains(yardsale.kslID) {
+                if let index = User.savedYardsaleIDs.index(of: yardsale.kslID) {
+                    User.savedYardsaleIDs.remove(at: index)
+                    UserDefaults.standard.set(User.savedYardsaleIDs, forKey: "savedYardsaleIDs")
+                    print(User.savedYardsaleIDs.description)
+                    UserDefaults.standard.synchronize()
+                }
+            }
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
