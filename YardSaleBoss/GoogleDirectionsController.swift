@@ -22,7 +22,7 @@ class GoogleDirectionsController {
         var waypoints: [String] = ["optimize:true"]
         for yardsale in YardsaleController.shared.savedYardsales {
             if let streetAddress = yardsale.streetAddress?.replacingOccurrences(of: " ", with: "+") {
-                let waypoint = streetAddress + yardsale.city.replacingOccurrences(of: " ", with: "+") + yardsale.state
+                let waypoint = streetAddress + "+" + yardsale.city.replacingOccurrences(of: " ", with: "+") + "+" + yardsale.state
                 waypoints.append(waypoint)
             }
         }
@@ -36,7 +36,10 @@ class GoogleDirectionsController {
             let origin = User.startAddress.replacingOccurrences(of: " ", with: "+")
             let destination = User.endAddress.replacingOccurrences(of: " ", with: "+")
             let waypoints = "&waypoints=\(getWaypoints().joined(separator: "|"))"
-            return baseURL + "origin=\(origin)" + "&destination=\(destination)" + waypoints + "&key=\(apiKey)"
+            let requestURL = baseURL + "origin=\(origin)" + "&destination=\(destination)" + waypoints + "&key=\(apiKey)"
+            print(requestURL)
+            return requestURL
+            
         }
         return request
     }

@@ -93,6 +93,29 @@ class CloudKitManager {
     
     // MARK: - Fetch Records
     
+    func fetchRecords(forRecordIDs recordIDs: [CKRecordID], completion: @escaping ([Yardsale]) -> Void) {
+        var yardsales: [Yardsale] = []
+        let operation = CKFetchRecordsOperation(recordIDs: recordIDs)
+        operation.database = publicDatabase
+        operation.perRecordCompletionBlock = { (record, recordID, error) -> Void in
+            if let record = record {
+                if let yardsale = Yardsale(withCKRecord: record) {
+                    yardsales.append(yardsale)
+                }
+            }
+        }
+        operation.completionBlock = {
+            // Code never reached.
+            debugPrint("completionBlock")
+            completion(yardsales)
+        }
+//        operation.fetchRecordsCompletionBlock = { (records:[CKRecordID: CKRecord]?, error:Error?) -> Void in
+//            // Code never reached
+//            debugPrint("fetchRecordsCompletionBlock")
+//        }
+        operation.start()
+    }
+    
     func fetchRecord(withID recordID: CKRecordID, completion: ((_ record: CKRecord?, _ error: Error?) -> Void)?) {
         
         publicDatabase.fetch(withRecordID: recordID) { (record, error) in

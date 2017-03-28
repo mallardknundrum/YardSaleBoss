@@ -45,7 +45,11 @@ class SavedYardsalesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let yardsale = YardsaleController.shared.savedYardsales[indexPath.row]
-            YardsaleController.shared.yardsales.insert(yardsale, at: 0)
+            if yardsale.streetAddress == nil {
+                YardsaleController.shared.yardsales[1].insert(yardsale, at: 0)
+            } else {
+                YardsaleController.shared.yardsales[0].insert(yardsale, at: 0)
+            }
             YardsaleController.shared.savedYardsales.remove(at: indexPath.row)
             
             tableView.deleteRows(at: [indexPath], with: .fade)

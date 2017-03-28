@@ -103,7 +103,7 @@ class Yardsale: Equatable {
         
         self.image = image
         self.timeOnSite = timeOnSite
-        self.kslID = String(describing: CKRecord.recordID)
+        self.kslID = String(describing: CKRecord.recordID.recordName)
         self.timestamp = CKRecord.creationDate
         self.streetAddress = streetAddress
         self.zipcode = nil
@@ -117,7 +117,7 @@ class Yardsale: Equatable {
 
 extension Yardsale {
     static func == (lhs: Yardsale, rhs: Yardsale) -> Bool {
-        return lhs.kslID == rhs.kslID
+        return lhs.yardsaleURL == rhs.yardsaleURL
     }
 }
 

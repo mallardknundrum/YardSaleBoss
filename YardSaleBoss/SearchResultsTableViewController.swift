@@ -25,26 +25,14 @@ class SearchResultsTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 140
         
         let savedYardsaleIDs = User.savedYardsaleIDs
-        var savedYardsaleReference: [CKReference] = []
+        var savedYardsaleReference: [CKRecordID] = []
         for id in savedYardsaleIDs {
-            savedYardsaleReference.append(CKReference(recordID: CKRecordID(recordName: id), action: .none))
+            savedYardsaleReference.append(CKRecordID(recordName: id))
+        }
+        CloudKitManager.shared.fetchRecords(forRecordIDs: savedYardsaleReference) { (yardsales) in
+            YardsaleController.shared.savedYardsales = yardsales
         }
 
-        let predicate = NSPredicate(format: "recordID IN %@", savedYardsaleReference)
-        let query = CKQuery(recordType: "Yardsale", predicate: predicate)
-
-        CloudKitManager.shared.publicDatabase.perform(query, inZoneWith: nil) { (records, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            if let records = records {
-                for record in records {
-                    if let yardsale = Yardsale(withCKRecord: record) {
-                        YardsaleController.shared.savedYardsales.append(yardsale)
-                    }
-                }
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,43 +74,103 @@ class SearchResultsTableViewController: UITableViewController {
             searchRadius = searchRadiusTextField.text!
         }
         YardsaleController.shared.fetchYardsales(withCity: city, state: state, zipcode: zipcode, andDistance: searchRadius) { (yardsaleArray) in
-            YardsaleController.shared.yardsales = yardsaleArray
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+            var yardsaleIDs: [CKRecordID] = []
+            var kslYardsales = yardsaleArray
+            var cloudYardsales: [Yardsale] = []
+            for yardsale in yardsaleArray {
+                yardsaleIDs.append(CKRecordID(recordName: yardsale.kslID))
             }
+            CloudKitManager.shared.fetchRecords(forRecordIDs: yardsaleIDs, completion: { (yardsales) in
+                cloudYardsales = yardsales
+                var indexes: [Int] = []
+                for (index, yardsale) in kslYardsales.enumerated() {
+                    if cloudYardsales.contains(yardsale) {
+                        indexes.append(index)
+                    }
+                }
+                indexes.sort(by: { (a, b) -> Bool in
+                    return a > b
+                })
+                for i in indexes {
+                    kslYardsales.remove(at: i)
+                }
+                YardsaleController.shared.yardsales[0] = cloudYardsales
+                YardsaleController.shared.yardsales[1] = kslYardsales
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
         }
         view.endEditing(true)
     }
     
     // MARK: - Table view data source
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return YardsaleController.shared.yardsales.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Cloud results"
+        }
+        if section == 1 {
+            return "KSL results"
+        } else {
+            return ""
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let yardsales = YardsaleController.shared.yardsales
-        return yardsales.count
+        return yardsales[section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath) as? SearchResultsTableViewCell else { return UITableViewCell() }
-        cell.yardsale = YardsaleController.shared.yardsales[indexPath.row]
+        cell.yardsale = YardsaleController.shared.yardsales[indexPath.section][indexPath.row]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            YardsaleController.shared.yardsales.remove(at: indexPath.row)
+            YardsaleController.shared.yardsales[indexPath.section].remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
         }
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastElement = YardsaleController.shared.yardsales.count - 1
+        let lastKSLElement = YardsaleController.shared.yardsales[1].count - 1
         guard YardsaleController.shared.kslNextPageURLString != "" else { return }
-        if indexPath.row == lastElement {
+        if indexPath.row == lastKSLElement {
             YardsaleController.shared.kslNextPage(completion: { (yardsales) in
-                YardsaleController.shared.yardsales.append(contentsOf: yardsales)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                var yardsaleIDs: [CKRecordID] = []
+                var kslYardsales = yardsales
+                var cloudYardsales: [Yardsale] = []
+                for yardsale in kslYardsales {
+                    yardsaleIDs.append(CKRecordID(recordName: yardsale.kslID))
                 }
+                CloudKitManager.shared.fetchRecords(forRecordIDs: yardsaleIDs, completion: { (yardsales) in
+                    cloudYardsales = yardsales
+                    var indexes: [Int] = []
+                    for (index, yardsale) in kslYardsales.enumerated() {
+                        if cloudYardsales.contains(yardsale) {
+                            indexes.append(index)
+                        }
+                    }
+                    indexes.sort(by: { (a, b) -> Bool in
+                        return a > b
+                    })
+                    for i in indexes {
+                        kslYardsales.remove(at: i)
+                    }
+                    YardsaleController.shared.yardsales[0].append(contentsOf: cloudYardsales)
+                    YardsaleController.shared.yardsales[1].append(contentsOf: kslYardsales)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                })
             })
         }
     }
