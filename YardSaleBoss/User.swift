@@ -16,11 +16,4 @@ class User {
     static var savedYardsaleIDs: [String] = []
 }
 
-//extension User {
-//    convenience init(startAddress: String, endAddress: String, savedYardsaleIDs: String, context: NSManagedObjectContext = CoreDataStack.context) {
-//        self.init(context: context)
-//        self.startAddress = startAddress
-//        self.endAddress = endAddress
-//        self.savedYardsales: savedYardsales
-//    }
-//}
+

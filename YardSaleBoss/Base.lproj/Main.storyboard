@@ -235,6 +235,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="cloudStarImageView" destination="DU5-E0-lcf" id="0QF-OQ-Xtl"/>
                                     <outlet property="selectedButton" destination="L8q-Rc-Q56" id="VvV-Cq-ANh"/>
                                     <outlet property="yardsaleCityStateTextLabel" destination="mPY-CB-wSR" id="vUn-VT-taV"/>
                                     <outlet property="yardsaleDescriptionTextView" destination="HuZ-SE-uoV" id="JG0-re-NSw"/>

@@ -14,6 +14,7 @@ class SearchResultsTableViewCell: UITableViewCell {
     @IBOutlet weak var yardsaleDescriptionTextView: UITextView!
     @IBOutlet weak var yardsaleTitleLabel: UILabel!
     @IBOutlet weak var selectedButton: UIButton!
+    @IBOutlet weak var cloudStarImageView: UIImageView!
     
     var yardsale: Yardsale? {
         didSet {
@@ -64,6 +65,11 @@ class SearchResultsTableViewCell: UITableViewCell {
             selectedButton.setTitle("", for: .normal)
             selectedButton.backgroundColor = UIColor.clear
             selectedButton.titleLabel?.textColor = UIColor.gray
+        }
+        if yardsale.streetAddress != nil {
+            cloudStarImageView.isHidden = false
+        } else {
+            cloudStarImageView.isHidden = true
         }
     }
 }

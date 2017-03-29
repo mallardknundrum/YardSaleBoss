@@ -46,9 +46,7 @@ class SavedYardsalesTableViewController: UITableViewController {
         if editingStyle == .delete {
             let yardsale = YardsaleController.shared.savedYardsales[indexPath.row]
             if yardsale.streetAddress == nil {
-                YardsaleController.shared.yardsales[1].insert(yardsale, at: 0)
-            } else {
-                YardsaleController.shared.yardsales[0].insert(yardsale, at: 0)
+                YardsaleController.shared.yardsales.insert(yardsale, at: 0)
             }
             YardsaleController.shared.savedYardsales.remove(at: indexPath.row)
             if User.savedYardsaleIDs.contains(yardsale.kslID) {
@@ -59,7 +57,6 @@ class SavedYardsalesTableViewController: UITableViewController {
                     UserDefaults.standard.synchronize()
                 }
             }
-            
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

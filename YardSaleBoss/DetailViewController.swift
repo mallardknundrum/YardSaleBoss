@@ -32,13 +32,13 @@ class DetailViewController: UIViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let yardsale = yardsale else { return }
         yardsale.streetAddress = yardsaleStreetAddressTextField.text?.replacingOccurrences(of: "#", with: "Apt")
-        let yardsales = YardsaleController.shared.yardsales[1]
+        let yardsales = YardsaleController.shared.yardsales
         let savedYardsales = YardsaleController.shared.savedYardsales
         if yardsales.contains(yardsale) {
             guard let index = yardsales.index(of: yardsale) else { return }
-            YardsaleController.shared.yardsales[1][index].streetAddress = yardsaleStreetAddressTextField.text
+            YardsaleController.shared.yardsales[index].streetAddress = yardsaleStreetAddressTextField.text
             if let city = yardsaleCityTextField.text, let state = yardsaleStateTextField.text, city != "", state != "" {
-                YardsaleController.shared.yardsales[1][index].cityStateString = city + ", " + state
+                YardsaleController.shared.yardsales[index].cityStateString = city + ", " + state
             }
         }
         if savedYardsales.contains(yardsale) {

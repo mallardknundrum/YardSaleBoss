@@ -13,7 +13,7 @@ class YardsaleController {
     
     static let shared = YardsaleController()
     
-    var yardsales: [[Yardsale]] = [[],[]]
+    var yardsales: [Yardsale] = []
     var savedYardsales: [Yardsale] = []
 //    var kslYardsaleCount: Int?
     
