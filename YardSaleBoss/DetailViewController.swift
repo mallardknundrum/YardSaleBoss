@@ -8,6 +8,9 @@
 
 import UIKit
 import CloudKit
+import os.log
+
+
 
 class DetailViewController: UIViewController {
     
@@ -65,7 +68,7 @@ class DetailViewController: UIViewController {
                 print("failed to update CKR")
             }
             if let record = record {
-                print ("success updating record")
+                os_log("success updating record")
             }
         }) { (records, error) in
             if let error = error {

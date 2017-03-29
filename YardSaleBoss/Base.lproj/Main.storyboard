@@ -137,7 +137,7 @@
                                 <rect key="frame" x="0.0" y="189" width="414" height="247"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ezV-aw-u7d" id="jF5-bT-I12">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="246"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="247"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IFw-bN-FnP">
@@ -275,33 +275,26 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wu1-p1-Mnh" id="Adg-bF-3PV">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="39.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TuY-1V-uKL">
-                                            <rect key="frame" x="8" y="3" width="34" height="34"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="TuY-1V-uKL" secondAttribute="height" multiplier="1:1" id="qmM-Ja-sIh"/>
-                                            </constraints>
-                                            <state key="normal" title="Button"/>
-                                        </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HjB-0O-aBN">
-                                            <rect key="frame" x="50" y="3" width="45" height="34"/>
+                                            <rect key="frame" x="7.9999999999999964" y="0.0" width="52.666666666666657" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="HjB-0O-aBN" secondAttribute="height" multiplier="400:300" id="h51-Cc-upN"/>
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Txp-gK-vRF">
-                                            <rect key="frame" x="103" y="3" width="303" height="34"/>
+                                            <rect key="frame" x="68.666666666666629" y="0.0" width="337.33333333333337" height="40"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdl-DD-Wsd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="303" height="13"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="337.33333333333331" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityState" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElD-8B-ZTz">
-                                                    <rect key="frame" x="0.0" y="21" width="303" height="13"/>
+                                                    <rect key="frame" x="0.0" y="24" width="337.33333333333331" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -311,17 +304,16 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="HjB-0O-aBN" firstAttribute="centerY" secondItem="Adg-bF-3PV" secondAttribute="centerY" id="2a0-6a-Flg"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="TuY-1V-uKL" secondAttribute="leading" id="7WL-nH-J8H"/>
                                         <constraint firstItem="Txp-gK-vRF" firstAttribute="leading" secondItem="HjB-0O-aBN" secondAttribute="trailing" constant="8" id="8Jg-WP-n75"/>
-                                        <constraint firstItem="HjB-0O-aBN" firstAttribute="height" secondItem="TuY-1V-uKL" secondAttribute="height" id="B6p-Kb-qbJ"/>
-                                        <constraint firstItem="TuY-1V-uKL" firstAttribute="height" secondItem="Adg-bF-3PV" secondAttribute="height" multiplier="0.85" id="Ft6-5A-A6W"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Txp-gK-vRF" secondAttribute="trailing" id="QG3-lI-TGB"/>
-                                        <constraint firstItem="HjB-0O-aBN" firstAttribute="leading" secondItem="TuY-1V-uKL" secondAttribute="trailing" constant="8" id="dc2-wI-HJA"/>
                                         <constraint firstItem="Txp-gK-vRF" firstAttribute="height" secondItem="HjB-0O-aBN" secondAttribute="height" id="ldj-2Z-7Ov"/>
+                                        <constraint firstItem="HjB-0O-aBN" firstAttribute="leading" secondItem="Adg-bF-3PV" secondAttribute="leading" constant="8" id="nhX-uT-gGC"/>
                                         <constraint firstItem="Txp-gK-vRF" firstAttribute="centerY" secondItem="Adg-bF-3PV" secondAttribute="centerY" id="prn-eU-eZC"/>
-                                        <constraint firstItem="TuY-1V-uKL" firstAttribute="centerY" secondItem="Adg-bF-3PV" secondAttribute="centerY" id="zAV-bM-gcW"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="HjB-0O-aBN" firstAttribute="height" secondItem="Wu1-p1-Mnh" secondAttribute="height" id="nFa-pW-hog"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="yardsaleCityStateLabel" destination="ElD-8B-ZTz" id="NBh-CW-tZj"/>
                                     <outlet property="yardsaleImageView" destination="HjB-0O-aBN" id="iYr-nl-GJY"/>
