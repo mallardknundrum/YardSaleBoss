@@ -15,17 +15,27 @@ class DirectionsViewController: UIViewController {
     
     @IBAction func directionsButtonTapped(_ sender: Any) {
         if let startingAddress = startingAddressTextField.text, let endingAddress = endingAddressTextField.text {
+            for yardsale in YardsaleController.shared.savedYardsales {
+                guard yardsale.streetAddress != nil else {
+                    self.checkAddressesAlert()
+                    self.tabBarController?.selectedIndex = 1
+                    return
+                }
+            }
             if startingAddress != "" && endingAddress != "" {
                 User.startAddress = startingAddress.replacingOccurrences(of: ",", with: " ")
                 User.endAddress = endingAddress.replacingOccurrences(of: ",", with: " ")
                 UserDefaults.standard.set(startingAddress.replacingOccurrences(of: ",", with: " "), forKey: "startingAddress")
                 UserDefaults.standard.set(endingAddress.replacingOccurrences(of: ",", with: " "), forKey: "endingAddress")
                 UserDefaults.standard.synchronize()
+            } else {
+                self.checkStartEndAlert()
+                return
             }
         }
         GoogleDirectionsController.shared.fetchGoogleMapsLink()
-        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let start = UserDefaults.standard.string(forKey: "startingAddress") {
@@ -38,7 +48,22 @@ class DirectionsViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Alert controllers
+    
+    func checkAddressesAlert() {
+        let alert = UIAlertController(title: "Check Addresses!", message: "Please check each yardsale in your yardsale list to verify it has an address, city, and state. You can click on the yardsale and edit the text boxes to make sure the full address is present. Be sure to hit save in the top right corner!", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true)
+    }
+    
+    func checkStartEndAlert() {
+        let alert = UIAlertController(title: "Check Addresses!", message: "Please check your starting and ending addresses. It appears one of them is blank.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true)
     }
     
 

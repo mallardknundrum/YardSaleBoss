@@ -32,6 +32,9 @@ class SearchResultsTableViewController: UITableViewController {
         }
         CloudKitManager.shared.fetchRecords(forRecordIDs: savedYardsaleReference) { (yardsales) in
             YardsaleController.shared.savedYardsales = yardsales
+            DispatchQueue.main.async {
+                self.tabBarController?.reloadInputViews()
+            }
         }
         searchSwitchTriggered(switchState)
 
