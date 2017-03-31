@@ -8,9 +8,11 @@
 
 import UIKit
 import CloudKit
+import CoreLocation
+import NotificationCenter
 
 
-class SearchResultsTableViewController: UITableViewController {
+class SearchResultsTableViewController: UITableViewController, CLLocationManagerDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var zipcodeTextField: UITextField!
@@ -18,6 +20,14 @@ class SearchResultsTableViewController: UITableViewController {
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var searchRadiusTextField: UITextField!
     @IBOutlet weak var switchState: UISwitch!
+    
+
+    var zipcode: String? {
+        didSet {
+            self.zipcodeTextField.text = zipcode
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +47,29 @@ class SearchResultsTableViewController: UITableViewController {
             }
         }
         searchSwitchTriggered(switchState)
-
+        LocationManager.shared.locationManager.delegate = self
+        
+    }
+    
+    
+    // MARK: - locationManager
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)-> Void in
+            if error != nil {
+                print("Reverse geocoder failed.")
+                return
+            }
+            if let placemarks = placemarks {
+                if placemarks.count > 0 {
+                    let placemark = placemarks[0]
+                    self.zipcode = placemark.postalCode
+                    LocationManager.shared.placemark = placemark
+                    self.tableView.reloadData()
+                }else{
+                    print("No placemarks found.")
+                }
+            }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +85,7 @@ class SearchResultsTableViewController: UITableViewController {
     }
     
     
+    
     @IBAction func searchSwitchTriggered(_ sender: UISwitch) {
         if switchState.isOn {
             cityTextField.isEnabled = false
@@ -61,7 +94,7 @@ class SearchResultsTableViewController: UITableViewController {
             stateTextField.isHidden = true
             zipcodeTextField.isEnabled = true
             zipcodeTextField.isHidden = false
-            zipcodeTextField.text = ""
+            zipcodeTextField.text = self.zipcode
             stateTextField.text = ""
             cityTextField.text = ""
         } else if !switchState.isOn {
@@ -71,7 +104,7 @@ class SearchResultsTableViewController: UITableViewController {
             stateTextField.isHidden = false
             zipcodeTextField.isEnabled = false
             zipcodeTextField.isHidden = true
-            zipcodeTextField.text = ""
+            zipcodeTextField.text = self.zipcode
             stateTextField.text = ""
             cityTextField.text = ""
         }
@@ -79,13 +112,11 @@ class SearchResultsTableViewController: UITableViewController {
     
     // MARK: - Search Function
     @IBAction func searchButtonTapped(_ sender: Any) {
-        var zipcode = ""
         var city = ""
         var state = ""
-        var searchRadius = ""
-        if zipcodeTextField.text != nil {
-            zipcode = zipcodeTextField.text!
-        }
+        var searchRadius = "10"
+        guard let zipcode = zipcodeTextField.text else { return }
+        
         if cityTextField.text != nil {
             city = cityTextField.text!
         }
@@ -98,9 +129,12 @@ class SearchResultsTableViewController: UITableViewController {
                 // pop up alert to ask for UT, ID, or WY
             }
         }
-        if searchRadiusTextField.text != nil {
-            searchRadius = searchRadiusTextField.text!
+        if let searchRadiusText = searchRadiusTextField.text {
+            if searchRadiusText != "" {
+                searchRadius = searchRadiusText
+            }
         }
+        
         YardsaleController.shared.fetchYardsales(withCity: city, state: state, zipcode: zipcode, andDistance: searchRadius) { (yardsaleArray) in
             var yardsaleIDs: [CKRecordID] = []
             var kslYardsales = yardsaleArray

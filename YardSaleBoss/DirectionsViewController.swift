@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
+import Contacts
 
-class DirectionsViewController: UIViewController {
-
+class DirectionsViewController: UIViewController, CLLocationManagerDelegate  {
+    
+    var address: String?
+    
     @IBOutlet weak var startingAddressTextField: UITextField!
     @IBOutlet weak var endingAddressTextField: UITextField!
     
@@ -29,8 +33,13 @@ class DirectionsViewController: UIViewController {
                 UserDefaults.standard.set(endingAddress.replacingOccurrences(of: ",", with: " "), forKey: "endingAddress")
                 UserDefaults.standard.synchronize()
             } else {
-                self.checkStartEndAlert()
-                return
+                if let address = self.address {
+                    User.startAddress = address.replacingOccurrences(of: ",", with: " ")
+                    User.endAddress = address.replacingOccurrences(of: ",", with: " ")
+                } else {
+                    self.checkStartEndAlert()
+                    return
+                }
             }
         }
         GoogleDirectionsController.shared.fetchGoogleMapsLink()
@@ -44,11 +53,67 @@ class DirectionsViewController: UIViewController {
         if let end = UserDefaults.standard.string(forKey: "endingAddress") {
             self.endingAddressTextField.text = end
         }
+        if let placemark = LocationManager.shared.placemark {
+            guard let dictionary = placemark.addressDictionary as? Dictionary<NSObject,AnyObject> else { return }
+            let address = self.localizedStringForAddressDictionary(addressDictionary: dictionary)
+            self.address = address
+        }
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        LocationManager.shared.locationManager.delegate = self
+        if let placemark = LocationManager.shared.placemark {
+            guard let dictionary = placemark.addressDictionary as? Dictionary<NSObject,AnyObject> else { return }
+            let address = self.localizedStringForAddressDictionary(addressDictionary: dictionary)
+            self.address = address.replacingOccurrences(of: "\n", with: " ", options: .literal, range: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    // MARK: - CLLocationManagerDelegate
+    
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)-> Void in
+//            if error != nil {
+//                print("Reverse geocoder failed.")
+//                return
+//            }
+//            if let placemarks = placemarks {
+//                if placemarks.count > 0 {
+//                    let placemark = placemarks[0]
+//                    guard let dictionary = placemark.addressDictionary as? Dictionary<NSObject,AnyObject> else { return }
+//                    let address = self.localizedStringForAddressDictionary(addressDictionary: dictionary)
+//                    self.address = address
+//                    self.view.reloadInputViews()
+//                }else{
+//                    print("No placemarks found.")
+//                }
+//            }
+//        })
+//    }
+    
+    // Convert to the newer CNPostalAddress
+    func postalAddressFromAddressDictionary(_ addressdictionary: Dictionary<NSObject,AnyObject>) -> CNMutablePostalAddress {
+        let address = CNMutablePostalAddress()
+        
+        address.street = addressdictionary["Street" as NSObject] as? String ?? ""
+        address.state = addressdictionary["State" as NSObject] as? String ?? ""
+        address.city = addressdictionary["City" as NSObject] as? String ?? ""
+        address.country = addressdictionary["Country" as NSObject] as? String ?? ""
+        address.postalCode = addressdictionary["ZIP" as NSObject] as? String ?? ""
+        
+        return address
+    }
+    
+    // Create a localized address string from an Address Dictionary
+    func localizedStringForAddressDictionary(addressDictionary: Dictionary<NSObject,AnyObject>) -> String {
+        return CNPostalAddressFormatter.string(from: postalAddressFromAddressDictionary(addressDictionary), style: .mailingAddress)
+    }
+    
     
     // MARK: - Alert controllers
     
@@ -66,15 +131,15 @@ class DirectionsViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

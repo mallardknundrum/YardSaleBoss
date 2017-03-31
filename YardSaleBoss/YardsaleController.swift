@@ -15,7 +15,7 @@ class YardsaleController {
     
     var yardsales: [Yardsale] = []
     var savedYardsales: [Yardsale] = []
-//    var kslYardsaleCount: Int?
+
     
     var kslNextPageURLString = ""
     
@@ -34,7 +34,6 @@ class YardsaleController {
             guard let data = data, let dataString = String(data: data, encoding: .utf8) else { completion([]); return }
             let doc = HTMLDocument(string: dataString)
             self.setKSLNextPageURLFor(htmlDocument: doc)
-//            self.kslYardsaleCount = Int(doc.nodes(matchingSelector: "span[class^='total-listings']")[0].textContent)
             let listingsHTMLElementArray = doc.nodes(matchingSelector: "div[class^='listing-group'] > div[class^='listing']")
             let listings = self.parseListingElementsFor(elementsArray: listingsHTMLElementArray)
             
