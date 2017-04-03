@@ -129,26 +129,27 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
                 zipcode = zip
             }
         }
-        
-        if let c = cityTextField.text {
-            if c != "" {
-                city = c
-            }
-        } else {
-            guard let c = self.city else { return }
-            city = c
-        }
-        if stateTextField.text != nil {
-            guard let stateText = stateTextField.text else { return }
-            if stateText.characters.count == 2 && stateText != "  " {
-                state = stateText.uppercased()
-            } else {
-                if let currentState = self.state {
-                    state = currentState
+        if !switchState.isOn {
+            if let c = cityTextField.text {
+                if c != "" {
+                    city = c
                 }
-                // pop up alert to ask for UT, ID, or WY
+            } else {
+                if let c = self.city {
+                    city = c
+                }
+            }
+            if let s = stateTextField.text {
+                if s.characters.count == 2 && s != "  " {
+                    state = s.uppercased()
+                }
+            } else {
+                if let s = self.state {
+                    state = s
+                }
             }
         }
+        
         if let searchRadiusText = searchRadiusTextField.text {
             if searchRadiusText != "" {
                 searchRadius = searchRadiusText
