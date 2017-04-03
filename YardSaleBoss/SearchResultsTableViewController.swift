@@ -21,13 +21,12 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
     @IBOutlet weak var searchRadiusTextField: UITextField!
     @IBOutlet weak var switchState: UISwitch!
     
+    let stateDictionary = ["UTAH": "UT", "IDAHO": "ID", "WYOMING": "WY"]
+    
 
-    var zipcode: String? {
-        didSet {
-            self.zipcodeTextField.text = zipcode
-            self.tableView.reloadData()
-        }
-    }
+    var zipcode: String? = ""
+    var city: String? = ""
+    var state: String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +62,11 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
                 if placemarks.count > 0 {
                     let placemark = placemarks[0]
                     self.zipcode = placemark.postalCode
+                    self.zipcodeTextField.text = self.zipcode
+                    self.state = placemark.administrativeArea
+                    self.city = placemark.locality
                     LocationManager.shared.placemark = placemark
+                    LocationManager.shared.locationManager.stopUpdatingLocation()
                     self.tableView.reloadData()
                 }else{
                     print("No placemarks found.")
@@ -104,9 +107,9 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
             stateTextField.isHidden = false
             zipcodeTextField.isEnabled = false
             zipcodeTextField.isHidden = true
-            zipcodeTextField.text = self.zipcode
-            stateTextField.text = ""
-            cityTextField.text = ""
+            zipcodeTextField.text = ""
+            stateTextField.text = self.state
+            cityTextField.text = self.city
         }
     }
     
@@ -115,17 +118,34 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         var city = ""
         var state = ""
         var searchRadius = "10"
-        guard let zipcode = zipcodeTextField.text else { return }
+        var zipcode = ""
+        if switchState.isOn {
+            if let zip = zipcodeTextField.text {
+                if zip.characters.count != 5 {
+                    if let currentZip = self.zipcode {
+                        zipcode = currentZip
+                    }
+                }
+                zipcode = zip
+            }
+        }
         
-        if cityTextField.text != nil {
-            city = cityTextField.text!
+        if let c = cityTextField.text {
+            if c != "" {
+                city = c
+            }
+        } else {
+            guard let c = self.city else { return }
+            city = c
         }
         if stateTextField.text != nil {
             guard let stateText = stateTextField.text else { return }
             if stateText.characters.count == 2 && stateText != "  " {
                 state = stateText.uppercased()
             } else {
-                stateTextField.text = ""
+                if let currentState = self.state {
+                    state = currentState
+                }
                 // pop up alert to ask for UT, ID, or WY
             }
         }

@@ -18,28 +18,39 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate  {
     @IBOutlet weak var endingAddressTextField: UITextField!
     
     @IBAction func directionsButtonTapped(_ sender: Any) {
-        if let startingAddress = startingAddressTextField.text, let endingAddress = endingAddressTextField.text {
-            for yardsale in YardsaleController.shared.savedYardsales {
-                guard yardsale.streetAddress != nil else {
-                    self.checkAddressesAlert()
-                    self.tabBarController?.selectedIndex = 1
-                    return
-                }
+        var startingAddress = ""
+        var endingAddress = ""
+        if let startAdd = startingAddressTextField.text {
+            if startAdd != "" {
+                startingAddress = startAdd
+            } else if let address = self.address {
+                startingAddress = address
             }
-            if startingAddress != "" && endingAddress != "" {
-                User.startAddress = startingAddress.replacingOccurrences(of: ",", with: " ")
-                User.endAddress = endingAddress.replacingOccurrences(of: ",", with: " ")
-                UserDefaults.standard.set(startingAddress.replacingOccurrences(of: ",", with: " "), forKey: "startingAddress")
-                UserDefaults.standard.set(endingAddress.replacingOccurrences(of: ",", with: " "), forKey: "endingAddress")
-                UserDefaults.standard.synchronize()
-            } else {
-                if let address = self.address {
-                    User.startAddress = address.replacingOccurrences(of: ",", with: " ")
-                    User.endAddress = address.replacingOccurrences(of: ",", with: " ")
-                } else {
-                    self.checkStartEndAlert()
-                    return
-                }
+        } else {
+            self.checkStartEndAlert()
+        }
+        
+        if let endAdd = endingAddressTextField.text {
+            if endAdd != "" {
+                endingAddress = endAdd
+            } else if let address = self.address {
+                endingAddress = address
+            }
+        } else {
+            self.checkStartEndAlert()
+        }
+        
+        User.startAddress = startingAddress.replacingOccurrences(of: ",", with: " ")
+        User.endAddress = endingAddress.replacingOccurrences(of: ",", with: " ")
+        UserDefaults.standard.set(startingAddress.replacingOccurrences(of: ",", with: " "), forKey: "startingAddress")
+        UserDefaults.standard.set(endingAddress.replacingOccurrences(of: ",", with: " "), forKey: "endingAddress")
+        UserDefaults.standard.synchronize()
+        
+        for yardsale in YardsaleController.shared.savedYardsales {
+            guard yardsale.streetAddress != nil && yardsale.streetAddress != "" else {
+                self.checkAddressesAlert()
+                self.tabBarController?.selectedIndex = 1
+                return
             }
         }
         GoogleDirectionsController.shared.fetchGoogleMapsLink()
