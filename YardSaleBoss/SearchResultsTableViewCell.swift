@@ -54,6 +54,8 @@ class SearchResultsTableViewCell: UITableViewCell {
         let title = yardsale.title
         if let image = yardsale.image {
             yardsaleImageView.image = image
+            yardsaleImageView.layer.cornerRadius = 10
+            yardsaleImageView.clipsToBounds = true
         }
         yardsaleTitleLabel.text = title
         yardsaleCityStateTextLabel.text = cityState

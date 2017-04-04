@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var yardsaleCityTextField: UITextField!
     @IBOutlet weak var yardsaleStateTextField: UITextField!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
-
+    
     
     var yardsale: Yardsale? {
         didSet {
@@ -78,41 +78,22 @@ class DetailViewController: UIViewController {
     }
     
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-//        scrollView.contentInset.bottom = 290
-//        scrollView.contentInset.top = 0
-//        NotificationCenter.default.addObserver(self,
-//                                                         selector: #selector(self.keyboardNotification(notification:)),
-//                                                         name: NSNotification.Name.UIKeyboardWillChangeFrame,
-//                                                         object: nil)
+        self.navigationController?.navigationBar.backItem?.hidesBackButton = true
+        self.navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.backgroundColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
+//        self.navigationController?.navigationBar.isTranslucent = false
+
+        self.navigationItem.hidesBackButton = true
     }
     
     deinit {
-//        NotificationCenter.default.removeObserver(self)
     }
     
-//    func keyboardNotification(notification: NSNotification) {
-//        if let userInfo = notification.userInfo {
-//            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-//            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-//            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-//            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
-//            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
-//            if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
-//                self.keyboardHeightLayoutConstraint?.constant = 0.0
-//            } else {
-//                self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
-//            }
-//            UIView.animate(withDuration: duration,
-//                           delay: TimeInterval(0),
-//                           options: animationCurve,
-//                           animations: { self.view.layoutIfNeeded() },
-//                           completion: nil)
-//        }
-//    }
     
     func updateViews() {
         guard let yardsale = yardsale else { return }
@@ -123,9 +104,12 @@ class DetailViewController: UIViewController {
             yardsaleStreetAddressTextField.text = yardsale.streetAddress
         }
         yardsaleImageView.image = yardsale.image
+        yardsaleImageView.layer.cornerRadius = 10
+        yardsaleImageView.clipsToBounds = true
         yardsaleTitleLabel.text = yardsale.title
         yardsaleCityTextField.text = yardsale.city
         yardsaleStateTextField.text = yardsale.state
         yardsaleDescriptionTextView.text = yardsale.yardsaleDescription
+        yardsaleDescriptionTextView.layer.cornerRadius = 10
     }
 }

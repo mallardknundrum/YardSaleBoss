@@ -68,7 +68,7 @@ class GoogleDirectionsController {
     func fetchGoogleMapsLink() {
         let requestURLString = buildRequestURL()
         
-        guard let url = URL(string: requestURLString.replacingOccurrences(of: "+", with: "%20").replacingOccurrences(of: "|", with: "%7C")) else {
+        guard let url = URL(string: requestURLString.replacingOccurrences(of: "+", with: "%20").replacingOccurrences(of: "|", with: "%7C").replacingOccurrences(of: "–", with: "%2D")) else {
             print(requestURLString)
             return
         }

@@ -1,15 +1,12 @@
 PODS:
   - HTMLReader (2.0.3)
-  - IQKeyboardManager (4.0.8)
 
 DEPENDENCIES:
   - HTMLReader
-  - IQKeyboardManager
 
 SPEC CHECKSUMS:
   HTMLReader: 282f41e641eda8938cfcf8c7b7151f70955aee33
-  IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
 
-PODFILE CHECKSUM: 03c5da956a5d7ad283e2aade82b33db0fcb1c4db
+PODFILE CHECKSUM: 7bd9cda8bc8987316cca888d3ee5e7792dd5050b
 
 COCOAPODS: 1.2.0

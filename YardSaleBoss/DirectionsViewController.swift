@@ -16,6 +16,9 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate  {
     
     @IBOutlet weak var startingAddressTextField: UITextField!
     @IBOutlet weak var endingAddressTextField: UITextField!
+    @IBAction func troubleshootingButtonTapped(_ sender: Any) {
+        troubleShootingAlert()
+    }
     
     @IBAction func directionsButtonTapped(_ sender: Any) {
         var startingAddress = ""
@@ -85,28 +88,6 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate  {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: - CLLocationManagerDelegate
-    
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)-> Void in
-//            if error != nil {
-//                print("Reverse geocoder failed.")
-//                return
-//            }
-//            if let placemarks = placemarks {
-//                if placemarks.count > 0 {
-//                    let placemark = placemarks[0]
-//                    guard let dictionary = placemark.addressDictionary as? Dictionary<NSObject,AnyObject> else { return }
-//                    let address = self.localizedStringForAddressDictionary(addressDictionary: dictionary)
-//                    self.address = address
-//                    self.view.reloadInputViews()
-//                }else{
-//                    print("No placemarks found.")
-//                }
-//            }
-//        })
-//    }
-    
     // Convert to the newer CNPostalAddress
     func postalAddressFromAddressDictionary(_ addressdictionary: Dictionary<NSObject,AnyObject>) -> CNMutablePostalAddress {
         let address = CNMutablePostalAddress()
@@ -129,7 +110,7 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate  {
     // MARK: - Alert controllers
     
     func checkAddressesAlert() {
-        let alert = UIAlertController(title: "Check Addresses!", message: "Please check each yardsale in your yardsale list to verify it has an address, city, and state. You can click on the yardsale and edit the text boxes to make sure the full address is present. Be sure to hit save in the top right corner!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Check Addresses!", message: "Please check each yardsale in your yardsale list to verify it has an address, city, and state. Check the yardsales that don't have a star in the corner of the picture first. You can click on the yardsale and edit the text boxes to make sure the full address is present. Be sure to hit save in the top right corner!", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         self.present(alert, animated: true)
@@ -142,15 +123,10 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate  {
         self.present(alert, animated: true)
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    func troubleShootingAlert() {
+        let alert = UIAlertController(title: "Troubleshooting", message: "Did the directions not turn out how you expected? Look at the city and state for each yardsale. Abbreviations won't work. It needs to have the full city name. Check the address for each yardsale. If the address was mistyped, then it might affect the directions.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true)
+    }
 }

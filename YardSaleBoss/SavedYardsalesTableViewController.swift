@@ -12,6 +12,7 @@ class SavedYardsalesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -20,6 +21,10 @@ class SavedYardsalesTableViewController: UITableViewController {
             User.savedYardsaleIDs = savedYS
         }
         tableView.reloadData()
+        self.navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.backgroundColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -38,6 +43,9 @@ class SavedYardsalesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "savedYardsaleCell", for: indexPath) as? SavedYardsalesTableViewCell else { return UITableViewCell() }
         cell.yardsale = YardsaleController.shared.savedYardsales[indexPath.row]
+        cell.layer.cornerRadius = 10
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor = (UIColor(colorLiteralRed: 142.0 / 255, green: 141.0 / 255, blue: 141.0 / 255, alpha: 1)).cgColor
         
         return cell
     }

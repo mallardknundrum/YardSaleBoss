@@ -20,6 +20,13 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var searchRadiusTextField: UITextField!
     @IBOutlet weak var switchState: UISwitch!
+    @IBOutlet weak var advancedSearchSwitchState: UISwitch!
+    @IBOutlet weak var searchBoxView: UIView!
+    @IBOutlet weak var advancedSerachBoxView: UIView!
+    @IBAction func advancedSearchSwitchStateChanged(_ sender: Any) {
+        
+        advancedSearchEnabled()
+    }
     
     let stateDictionary = ["UTAH": "UT", "IDAHO": "ID", "WYOMING": "WY"]
     
@@ -47,7 +54,7 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         }
         searchSwitchTriggered(switchState)
         LocationManager.shared.locationManager.delegate = self
-        
+        self.advancedSearchEnabled()
     }
     
     
@@ -78,6 +85,7 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        self.tableView.backgroundColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
     }
     
     override func viewDidLayoutSubviews() {
@@ -87,26 +95,37 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         self.view.frame = UIEdgeInsetsInsetRect(self.view.superview!.bounds, insets)
     }
     
+    func advancedSearchEnabled() {
+        if self.advancedSearchSwitchState.isOn {
+            self.advancedSerachBoxView.isHidden = false
+            self.searchBoxView.frame.size.height = 215
+        } else {
+            self.advancedSerachBoxView.isHidden = true
+            self.searchBoxView.frame.size.height = CGFloat(215 - 148)
+        }
+        self.tableView.reloadInputViews()
+        self.tableView.reloadData()
+    }
     
     
     @IBAction func searchSwitchTriggered(_ sender: UISwitch) {
         if switchState.isOn {
             cityTextField.isEnabled = false
-            cityTextField.isHidden = true
+//            cityTextField.isHidden = true
             stateTextField.isEnabled = false
-            stateTextField.isHidden = true
+//            stateTextField.isHidden = true
             zipcodeTextField.isEnabled = true
-            zipcodeTextField.isHidden = false
+//            zipcodeTextField.isHidden = false
             zipcodeTextField.text = self.zipcode
             stateTextField.text = ""
             cityTextField.text = ""
         } else if !switchState.isOn {
             cityTextField.isEnabled = true
-            cityTextField.isHidden = false
+//            cityTextField.isHidden = false
             stateTextField.isEnabled = true
-            stateTextField.isHidden = false
+//            stateTextField.isHidden = false
             zipcodeTextField.isEnabled = false
-            zipcodeTextField.isHidden = true
+//            zipcodeTextField.isHidden = true
             zipcodeTextField.text = ""
             stateTextField.text = self.state
             cityTextField.text = self.city
@@ -199,6 +218,11 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath) as? SearchResultsTableViewCell else { return UITableViewCell() }
         cell.yardsale = YardsaleController.shared.yardsales[indexPath.row]
+        cell.layer.cornerRadius = 10
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor = (UIColor(colorLiteralRed: 142.0 / 255, green: 141.0 / 255, blue: 141.0 / 255, alpha: 1)).cgColor
+        
+
         return cell
     }
     
