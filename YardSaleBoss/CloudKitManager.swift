@@ -112,6 +112,7 @@ class CloudKitManager {
 //        operation.fetchRecordsCompletionBlock = { (records:[CKRecordID: CKRecord]?, error:Error?) -> Void in
 //            // Code never reached
 //            debugPrint("fetchRecordsCompletionBlock")
+//            completion(yardsales)
 //        }
         operation.start()
     }

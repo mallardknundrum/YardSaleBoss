@@ -12,7 +12,7 @@ import os.log
 
 
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var yardsaleImageView: UIImageView!
@@ -82,16 +82,31 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        self.navigationController?.navigationBar.backItem?.hidesBackButton = true
-        self.navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
+//        self.navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
         self.navigationController?.navigationBar.backgroundColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
         self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
-//        self.navigationController?.navigationBar.isTranslucent = false
-
-        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.tintColor = .red
+        navigationItem.backBarButtonItem?.title = "Cancel"
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.kekyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        self.yardsaleCityTextField.delegate = self
+        self.yardsaleStateTextField.delegate = self
+        self.yardsaleStreetAddressTextField.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.textFieldShouldReturn))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     deinit {
+    }
+    func backButtonTapped() {
+        
     }
     
     
@@ -111,5 +126,46 @@ class DetailViewController: UIViewController {
         yardsaleStateTextField.text = yardsale.state
         yardsaleDescriptionTextView.text = yardsale.yardsaleDescription
         yardsaleDescriptionTextView.layer.cornerRadius = 10
+    }
+    
+    func textFieldResignFirstResponder(gesture: UITapGestureRecognizer) {
+        yardsaleStreetAddressTextField.resignFirstResponder()
+        yardsaleCityTextField.resignFirstResponder()
+        yardsaleStateTextField.resignFirstResponder()
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        var animationDuration: TimeInterval = 0.25
+        if let duration =
+            notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber {
+            animationDuration = duration.doubleValue
+        }
+        UIView.animate(withDuration: animationDuration) {
+            if let kbSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                if self.view.frame.origin.y == 0 {
+                    self.view.frame.origin.y -= kbSize.height
+                }
+            }
+        }
+    }
+    
+    func kekyboardWillHide(notification: NSNotification) {
+        var animationDuration: TimeInterval = 0.25
+        if let duration =
+            notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber {
+            animationDuration = duration.doubleValue
+        }
+        UIView.animate(withDuration: animationDuration) {
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                if self.view.frame.origin.y != 0{
+                    self.view.frame.origin.y += keyboardSize.height
+                }
+            }
+        }
+    }
+    
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

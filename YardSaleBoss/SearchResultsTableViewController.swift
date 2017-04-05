@@ -14,7 +14,8 @@ import NotificationCenter
 
 class SearchResultsTableViewController: UITableViewController, CLLocationManagerDelegate {
     
-    // MARK: - Outlets
+    // MARK: - Outlets / Properties
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     @IBOutlet weak var zipcodeTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
@@ -24,20 +25,19 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
     @IBOutlet weak var searchBoxView: UIView!
     @IBOutlet weak var advancedSerachBoxView: UIView!
     @IBAction func advancedSearchSwitchStateChanged(_ sender: Any) {
-        
         advancedSearchEnabled()
     }
     
     let stateDictionary = ["UTAH": "UT", "IDAHO": "ID", "WYOMING": "WY"]
     
-
+    
     var zipcode: String? = ""
     var city: String? = ""
     var state: String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         
@@ -46,9 +46,12 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         for id in savedYardsaleIDs {
             savedYardsaleReference.append(CKRecordID(recordName: id))
         }
+        let spinner = startActivityIndicatorView()
+        view.bringSubview(toFront: activityIndicator)
         CloudKitManager.shared.fetchRecords(forRecordIDs: savedYardsaleReference) { (yardsales) in
             YardsaleController.shared.savedYardsales = yardsales
             DispatchQueue.main.async {
+                self.stopActivityIndicatorView(activityView: spinner)
                 self.tabBarController?.reloadInputViews()
             }
         }
@@ -97,11 +100,15 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
     
     func advancedSearchEnabled() {
         if self.advancedSearchSwitchState.isOn {
-            self.advancedSerachBoxView.isHidden = false
-            self.searchBoxView.frame.size.height = 215
+            UIView.animate(withDuration: 0.5, animations: {
+                self.advancedSerachBoxView.isHidden = false
+                self.searchBoxView.frame.size.height = 215
+            })
         } else {
-            self.advancedSerachBoxView.isHidden = true
-            self.searchBoxView.frame.size.height = CGFloat(215 - 148)
+            UIView.animate(withDuration: 0.5, animations: {
+                self.advancedSerachBoxView.isHidden = true
+                self.searchBoxView.frame.size.height = CGFloat(215 - 148)
+            })
         }
         self.tableView.reloadInputViews()
         self.tableView.reloadData()
@@ -111,24 +118,48 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
     @IBAction func searchSwitchTriggered(_ sender: UISwitch) {
         if switchState.isOn {
             cityTextField.isEnabled = false
-//            cityTextField.isHidden = true
+            //            cityTextField.isHidden = true
             stateTextField.isEnabled = false
-//            stateTextField.isHidden = true
+            //            stateTextField.isHidden = true
             zipcodeTextField.isEnabled = true
-//            zipcodeTextField.isHidden = false
+            //            zipcodeTextField.isHidden = false
             zipcodeTextField.text = self.zipcode
             stateTextField.text = ""
             cityTextField.text = ""
         } else if !switchState.isOn {
             cityTextField.isEnabled = true
-//            cityTextField.isHidden = false
+            //            cityTextField.isHidden = false
             stateTextField.isEnabled = true
-//            stateTextField.isHidden = false
+            //            stateTextField.isHidden = false
             zipcodeTextField.isEnabled = false
-//            zipcodeTextField.isHidden = true
+            //            zipcodeTextField.isHidden = true
             zipcodeTextField.text = ""
             stateTextField.text = self.state
             cityTextField.text = self.city
+        }
+    }
+    
+    // MARK: - Activity Indicator
+    
+    func startActivityIndicatorView() -> UIActivityIndicatorView {
+        let x = (self.view.frame.width / 2)
+        let y = (self.view.frame.height / 2)
+        
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityView.frame = CGRect(x: 200, y: 120, width: 200, height: 200)
+        activityView.center = CGPoint(x: x, y: y)
+        activityView.color = UIColor(colorLiteralRed: 55.0 / 255.0, green: 55.0 / 255.0, blue: 55.0 / 255.0, alpha: 1.0)
+        
+        activityView.startAnimating()
+        self.view.addSubview(activityView)
+        
+        return activityView
+    }
+    
+    func stopActivityIndicatorView(activityView: UIActivityIndicatorView) {
+        DispatchQueue.main.async {
+            self.view.willRemoveSubview(activityView)
+            activityView.removeFromSuperview()
         }
     }
     
@@ -174,7 +205,7 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
                 searchRadius = searchRadiusText
             }
         }
-        
+        let spinner = startActivityIndicatorView()
         YardsaleController.shared.fetchYardsales(withCity: city, state: state, zipcode: zipcode, andDistance: searchRadius) { (yardsaleArray) in
             var yardsaleIDs: [CKRecordID] = []
             var kslYardsales = yardsaleArray
@@ -195,6 +226,7 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
                 }
                 YardsaleController.shared.yardsales = kslYardsales
                 DispatchQueue.main.async {
+                    self.stopActivityIndicatorView(activityView: spinner)
                     self.tableView.reloadData()
                 }
             })
@@ -222,7 +254,7 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         cell.layer.borderWidth = 2.0
         cell.layer.borderColor = (UIColor(colorLiteralRed: 142.0 / 255, green: 141.0 / 255, blue: 141.0 / 255, alpha: 1)).cgColor
         
-
+        
         return cell
     }
     
@@ -238,6 +270,14 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         let lastKSLElement = YardsaleController.shared.yardsales.count - 1
         guard YardsaleController.shared.kslNextPageURLString != "" else { return }
         if indexPath.row == lastKSLElement {
+            let origin = cell.frame.origin
+            let spinner = startActivityIndicatorView()
+            let screenSize = UIScreen.main.bounds
+            let x = screenSize.width / 2
+            let y = origin.y - cell.frame.height * 0.5
+            spinner.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
+            spinner.backgroundColor = UIColor(colorLiteralRed: 191.0 / 255, green: 191.0 / 255, blue: 191.0 / 255, alpha: 1)
+            spinner.center = CGPoint(x: x, y: y)
             YardsaleController.shared.kslNextPage(completion: { (yardsales) in
                 var yardsaleIDs: [CKRecordID] = []
                 var kslYardsales = yardsales
@@ -258,6 +298,7 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
                     }
                     YardsaleController.shared.yardsales.append(contentsOf: kslYardsales)
                     DispatchQueue.main.async {
+                        self.stopActivityIndicatorView(activityView: spinner)
                         self.tableView.reloadData()
                     }
                 })

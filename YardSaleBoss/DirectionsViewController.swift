@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import Contacts
 
-class DirectionsViewController: UIViewController, CLLocationManagerDelegate  {
+class DirectionsViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate  {
     
     var address: String?
     
@@ -19,6 +19,19 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate  {
     @IBAction func troubleshootingButtonTapped(_ sender: Any) {
         troubleShootingAlert()
     }
+    @IBAction func useCurrentButtonTapped(_ sender: Any) {
+        startingAddressTextField.text = address
+    }
+    @IBAction func startAddClearButtonTapped(_ sender: Any) {
+        startingAddressTextField.text = ""
+    }
+    @IBAction func endAddUseCurrentTapped(_ sender: Any) {
+        endingAddressTextField.text = address
+    }
+    @IBAction func endAddClearButtonTapped(_ sender: Any) {
+        endingAddressTextField.text = ""
+    }
+    
     
     @IBAction func directionsButtonTapped(_ sender: Any) {
         var startingAddress = ""
@@ -72,6 +85,10 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate  {
             let address = self.localizedStringForAddressDictionary(addressDictionary: dictionary)
             self.address = address
         }
+        startingAddressTextField.delegate = self
+        endingAddressTextField.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.textFieldShouldReturn))
+        view.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,6 +103,17 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate  {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - TextFieldDelegate
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func textFieldResignFirstResponder(gesture: UITapGestureRecognizer) {
+        startingAddressTextField.resignFirstResponder()
+        endingAddressTextField.resignFirstResponder()
     }
     
     // Convert to the newer CNPostalAddress
@@ -124,7 +152,7 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate  {
     }
     
     func troubleShootingAlert() {
-        let alert = UIAlertController(title: "Troubleshooting", message: "Did the directions not turn out how you expected? Look at the city and state for each yardsale. Abbreviations won't work. It needs to have the full city name. Check the address for each yardsale. If the address was mistyped, then it might affect the directions.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Troubleshooting", message: "Did the directions not turn out how you expected? Look at the city and state for each yardsale. Abbreviations won't work for the city name. It needs to have the full city name. Check the address for each yardsale. If the address was mistyped, then it might affect the directions.", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         self.present(alert, animated: true)
