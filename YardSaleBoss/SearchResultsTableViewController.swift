@@ -28,6 +28,8 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         advancedSearchEnabled()
     }
     
+    var showTutorial = false
+    
     let stateDictionary = ["UTAH": "UT", "IDAHO": "ID", "WYOMING": "WY"]
     
     
@@ -58,6 +60,25 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         searchSwitchTriggered(switchState)
         LocationManager.shared.locationManager.delegate = self
         self.advancedSearchEnabled()
+        if let showTutorial = UserDefaults.standard.object(forKey: "showSearchTutorial") as? Bool {
+            self.showTutorial = showTutorial
+            UserDefaults.standard.set(showTutorial, forKey: "showSearchTutorial")
+        } else {
+            self.showTutorial = true
+            UserDefaults.standard.set(true, forKey: "showSearchTutorial")
+        }
+        self.tabBarController?.tabBar.tintColor = UIColor.blue
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.showTutorial {
+            TutorialController.shared.searchTutorial(viewController: self, title:  "Welcome to iYardsale!", message: "You are on the first tab (there are 3 tabs along the bottom). \n\nThis is where you search. You can just tap the search button and it will find yardsales within 10 miles of your current location. \n\nYardsales with a star in the top left corner already have an address filled in. \n\nYou can click on the switch in the top right corner to used more advanced search features. \n\nSimply click on the photo to add a yardsale to your saved yardsale list. \n\nIf you aren't interested in a particular yardsale, you can swipe to delete it and get it out of your way!", alertActionTitle: "Show me the next tab", completion: {
+                UserDefaults.standard.set(false, forKey: "showSearchTutorial")
+                self.showTutorial = false
+                self.tabBarController?.selectedIndex = 1
+            })
+        }
     }
     
     

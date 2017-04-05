@@ -16,6 +16,12 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     @IBOutlet weak var startingAddressTextField: UITextField!
     @IBOutlet weak var endingAddressTextField: UITextField!
+    @IBOutlet weak var showTutorialSwitchState: UISwitch!
+    
+    
+    @IBAction func showTutorialSwitchTapped(_ sender: Any) {
+        tutorialSwitchTapped()
+    }
     @IBAction func troubleshootingButtonTapped(_ sender: Any) {
         troubleShootingAlert()
     }
@@ -31,6 +37,9 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate, UIT
     @IBAction func endAddClearButtonTapped(_ sender: Any) {
         endingAddressTextField.text = ""
     }
+    
+    var showTutorial = false
+    var showAllTutorials = false
     
     
     @IBAction func directionsButtonTapped(_ sender: Any) {
@@ -85,10 +94,18 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate, UIT
             let address = self.localizedStringForAddressDictionary(addressDictionary: dictionary)
             self.address = address
         }
+        
         startingAddressTextField.delegate = self
         endingAddressTextField.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.textFieldShouldReturn))
         view.addGestureRecognizer(tapGesture)
+        if let showTutorial = UserDefaults.standard.object(forKey: "showDirectionsTutorial") as? Bool {
+            self.showTutorial = showTutorial
+            UserDefaults.standard.set(showTutorial, forKey: "showDirectionsTutorial")
+        } else {
+            self.showTutorial = true
+            UserDefaults.standard.set(true, forKey: "showDirectionsTutorial")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,6 +115,30 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate, UIT
             guard let dictionary = placemark.addressDictionary as? Dictionary<NSObject,AnyObject> else { return }
             let address = self.localizedStringForAddressDictionary(addressDictionary: dictionary)
             self.address = address.replacingOccurrences(of: "\n", with: " ", options: .literal, range: nil)
+        }
+        let showTutorials = UserDefaults.standard.bool(forKey: "showAllTutorials")
+        self.showAllTutorials = showTutorials
+        if showTutorials {
+            showTutorialSwitchState.isOn = true
+        } else {
+            showTutorialSwitchState.isOn = false
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.showTutorial {
+            TutorialController.shared.searchTutorial(viewController: self, title:  "You're on the third tab!", message: "This is where you get directions. Do you want to go to the movies after yardsaling? No problem! Put it in the ending address!\n\n You can customize where you start and end, you can use your current location, or you can leave it blank (in which case, it uses your current location).\n\nIf the directions don't show how you thought they would, there is a troubleshooting button to give you some pointers and ideas to get it working. You can also set the tutorial to show when you start the app. \n\nHave fun yardsaling!", alertActionTitle: "Search for yardsalse!", completion: {
+                UserDefaults.standard.set(false, forKey: "showDirectionsTutorial")
+                self.showTutorial = false
+                self.showAllTutorials = false
+                UserDefaults.standard.set(false, forKey: "showAllTutorials")
+                self.tutorialSwitchTapped()
+                self.reloadInputViews()
+                UIView.animate(withDuration: 0.5, animations: { 
+                    self.tabBarController?.selectedIndex = 0
+                })
+            })
         }
     }
     
@@ -134,6 +175,24 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate, UIT
         return CNPostalAddressFormatter.string(from: postalAddressFromAddressDictionary(addressDictionary), style: .mailingAddress)
     }
     
+    func tutorialSwitchTapped() {
+        if showTutorialSwitchState.isOn {
+            UserDefaults.standard.set(true, forKey: "showSearchTutorial")
+            UserDefaults.standard.set(true, forKey: "showSavedListTutorial")
+            UserDefaults.standard.set(true, forKey: "showDetailViewTutorial")
+            UserDefaults.standard.set(true, forKey: "showDirectionsTutorial")
+            UserDefaults.standard.set(true, forKey: "showAllTutorials")
+            self.showAllTutorials = true
+        }
+        if !showTutorialSwitchState.isOn {
+            UserDefaults.standard.set(false, forKey: "showSearchTutorial")
+            UserDefaults.standard.set(false, forKey: "showSavedListTutorial")
+            UserDefaults.standard.set(false, forKey: "showDetailViewTutorial")
+            UserDefaults.standard.set(false, forKey: "showDirectionsTutorial")
+            UserDefaults.standard.set(false, forKey: "showAllTutorials")
+            self.showAllTutorials = false
+        }
+    }
     
     // MARK: - Alert controllers
     

@@ -18,6 +18,7 @@
 		5C36E09F1E76F0F000449189 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C36E09E1E76F0F000449189 /* Assets.xcassets */; };
 		5C36E0A21E76F0F000449189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C36E0A01E76F0F000449189 /* LaunchScreen.storyboard */; };
 		5C4AD5D11E7C9B190050C6C9 /* GoogleDirectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4AD5D01E7C9B190050C6C9 /* GoogleDirectionsController.swift */; };
+		5C5049B81E9554FD00D456DD /* TutorialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5049B71E9554FD00D456DD /* TutorialController.swift */; };
 		5C7933AD1E85E03A009B3F4B /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7933AC1E85E03A009B3F4B /* CloudKitManager.swift */; };
 		5C9010921E7703C50098AFFB /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9010911E7703C50098AFFB /* SearchResultsTableViewController.swift */; };
 		5C9010941E7703DC0098AFFB /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9010931E7703DC0098AFFB /* Stack.swift */; };
@@ -52,6 +53,7 @@
 		5C36E0A11E76F0F000449189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C36E0A31E76F0F000449189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C4AD5D01E7C9B190050C6C9 /* GoogleDirectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDirectionsController.swift; sourceTree = "<group>"; };
+		5C5049B71E9554FD00D456DD /* TutorialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialController.swift; sourceTree = "<group>"; };
 		5C7933AC1E85E03A009B3F4B /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		5C9010911E7703C50098AFFB /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		5C9010931E7703DC0098AFFB /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				5C7933AC1E85E03A009B3F4B /* CloudKitManager.swift */,
 				5CB3D4FB1E8D6A2000E808A2 /* CraigslistParseController.swift */,
 				5CB3D4FF1E8D9C0F00E808A2 /* LocationManager.swift */,
+				5C5049B71E9554FD00D456DD /* TutorialController.swift */,
 			);
 			name = OtherControllers;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				5C9010941E7703DC0098AFFB /* Stack.swift in Sources */,
 				5C7933AD1E85E03A009B3F4B /* CloudKitManager.swift in Sources */,
 				5C36E09D1E76F0F000449189 /* YardSaleBoss.xcdatamodeld in Sources */,
+				5C5049B81E9554FD00D456DD /* TutorialController.swift in Sources */,
 				5C93B8A31E7A1667001FAB4E /* SearchResultsTableViewCell.swift in Sources */,
 				5C36E0951E76F0F000449189 /* AppDelegate.swift in Sources */,
 				5CAC5DFB1E7AEF7000F47C64 /* ImageController.swift in Sources */,

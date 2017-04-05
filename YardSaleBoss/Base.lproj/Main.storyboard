@@ -454,7 +454,7 @@
                                     <outlet property="yardsaleCityStateLabel" destination="ElD-8B-ZTz" id="NBh-CW-tZj"/>
                                     <outlet property="yardsaleImageView" destination="HjB-0O-aBN" id="iYr-nl-GJY"/>
                                     <outlet property="yardsaleTitleLabel" destination="wdl-DD-Wsd" id="fuF-OA-Bcw"/>
-                                    <segue destination="0od-SP-EYD" kind="show" id="yYw-37-wrf"/>
+                                    <segue destination="0od-SP-EYD" kind="show" identifier="toYardsaleDetail" id="yYw-37-wrf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -488,7 +488,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCd-t7-Z96">
-                                                <rect key="frame" x="0.0" y="5" width="149.66666666666666" height="20.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="5" width="150" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -499,7 +499,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inn-S2-sM7">
-                                                <rect key="frame" x="153.66666666666663" y="0.0" width="123.33333333333337" height="30"/>
+                                                <rect key="frame" x="154" y="0.0" width="123" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Use Current">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -550,7 +550,7 @@
                                         <rect key="frame" x="0.0" y="76" width="374" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9N-Gb-bRq">
-                                                <rect key="frame" x="0.0" y="5" width="149.66666666666666" height="20.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="5" width="150" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -561,7 +561,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFF-Eu-Iqs">
-                                                <rect key="frame" x="153.66666666666663" y="0.0" width="123.33333333333337" height="30"/>
+                                                <rect key="frame" x="154" y="0.0" width="123" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Use Current">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -657,26 +657,50 @@
                                     <action selector="troubleshootingButtonTapped:" destination="yKY-FA-0nt" eventType="touchUpInside" id="cmI-pa-Xuv"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1BI-3m-eUp">
+                                <rect key="frame" x="20" y="263" width="374" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show tutorial on next start?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFh-Gj-xgS">
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rdz-oh-gds">
+                                        <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="showTutorialSwitchTapped:" destination="yKY-FA-0nt" eventType="valueChanged" id="6OY-h2-fmQ"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="QHd-gA-SCO"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="HoT-gs-A2p" secondAttribute="trailing" id="0xk-yZ-BWR"/>
+                            <constraint firstItem="1BI-3m-eUp" firstAttribute="top" secondItem="PKR-pL-dsk" secondAttribute="bottom" constant="8" id="2wr-Rh-NKF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jUp-eB-8sq" secondAttribute="trailing" id="4xI-1T-Ozn"/>
                             <constraint firstItem="jUp-eB-8sq" firstAttribute="top" secondItem="HoT-gs-A2p" secondAttribute="bottom" constant="8" id="HP4-Bo-EBX"/>
                             <constraint firstItem="PKR-pL-dsk" firstAttribute="top" secondItem="jUp-eB-8sq" secondAttribute="bottom" constant="8" id="JDI-Ei-SRc"/>
                             <constraint firstItem="HoT-gs-A2p" firstAttribute="top" secondItem="5Lv-pb-5Pj" secondAttribute="bottom" constant="15" id="OSp-ET-uUa"/>
                             <constraint firstItem="HoT-gs-A2p" firstAttribute="leading" secondItem="CPp-OQ-qAC" secondAttribute="leadingMargin" id="PHf-by-PXq"/>
                             <constraint firstAttribute="leadingMargin" secondItem="PKR-pL-dsk" secondAttribute="leading" id="RbE-vn-8lB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1BI-3m-eUp" secondAttribute="trailing" id="f5t-bG-4AE"/>
                             <constraint firstItem="jUp-eB-8sq" firstAttribute="centerX" secondItem="CPp-OQ-qAC" secondAttribute="centerX" id="gte-pf-iC9"/>
                             <constraint firstItem="jUp-eB-8sq" firstAttribute="leading" secondItem="CPp-OQ-qAC" secondAttribute="leadingMargin" id="r7i-sa-eOU"/>
                             <constraint firstItem="jUp-eB-8sq" firstAttribute="top" secondItem="HoT-gs-A2p" secondAttribute="bottom" constant="8" id="t5T-I5-CEp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PKR-pL-dsk" secondAttribute="trailing" id="wwx-6U-1lu"/>
                             <constraint firstItem="PKR-pL-dsk" firstAttribute="height" secondItem="jUp-eB-8sq" secondAttribute="height" id="x8g-p0-Cir"/>
+                            <constraint firstItem="1BI-3m-eUp" firstAttribute="leading" secondItem="CPp-OQ-qAC" secondAttribute="leadingMargin" id="zmV-2S-zEN"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Route" image="MapIcon" selectedImage="MapIcon" id="eaL-fs-1CP"/>
+                    <tabBarItem key="tabBarItem" title="Route" image="MapIcon" selectedImage="mapBlue" id="eaL-fs-1CP"/>
                     <connections>
                         <outlet property="endingAddressTextField" destination="O7I-Sd-CxP" id="giS-5J-GaP"/>
+                        <outlet property="showTutorialSwitchState" destination="rdz-oh-gds" id="ERX-NC-Hhl"/>
                         <outlet property="startingAddressTextField" destination="aJA-ow-W4E" id="QnU-l1-BXo"/>
                     </connections>
                 </viewController>
@@ -835,11 +859,11 @@
             </objects>
             <point key="canvasLocation" x="1053.6231884057972" y="868.20652173913049"/>
         </scene>
-        <!--Saved Yardsales-->
+        <!--Saved-->
         <scene sceneID="rFy-2M-ywe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZfP-sq-iM5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Saved Yardsales" image="SavedIcon" selectedImage="SavedIcon" id="Yih-vA-l9V"/>
+                    <tabBarItem key="tabBarItem" title="Saved" image="SavedIcon" selectedImage="SavedIcon" id="Yih-vA-l9V"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vBf-JM-YWl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -860,5 +884,6 @@
         <image name="SavedIcon" width="19" height="25"/>
         <image name="Search" width="21" height="21"/>
         <image name="Star" width="105" height="102"/>
+        <image name="mapBlue" width="25" height="25"/>
     </resources>
 </document>

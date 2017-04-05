@@ -10,9 +10,21 @@ import UIKit
 
 class SavedYardsalesTableViewController: UITableViewController {
     
+    var showTutorial = false
+    var dummyYardsale = Yardsale(title: "Mock Yardsale", yardsaleDescription: "This is a demonstration yardsale. Normally people would post the address of the yardsale here. Here is a sample address: \n\n Address: 301 S Temple, Salt Lake City, UT. You will need to copy the street address and paste it in the address box above. Also, check the city and state. No abbreviations are allowed for the city. For example, SLC will not work. It needs to say Salt Lake City (capitalization is not important). ", yardsaleURL: "www.someRandomYardsale.com", imageURL: "www.randomimage.com", timeOnSite: "30min", cityStateString: "Salt Lake City, UT", image: #imageLiteral(resourceName: "dummyYardsale"), kslID: "gibberish")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if let showTutorial = UserDefaults.standard.object(forKey: "showSavedListTutorial") as? Bool {
+            self.showTutorial = showTutorial
+            UserDefaults.standard.set(showTutorial, forKey: "showSavedListTutorial")
+        } else {
+            self.showTutorial = true
+            UserDefaults.standard.set(true, forKey: "showSavedListTutorial")
+        }
+        if self.showTutorial {
+            YardsaleController.shared.savedYardsales.insert(dummyYardsale, at: 0)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,12 +39,28 @@ class SavedYardsalesTableViewController: UITableViewController {
         
     }
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        self.view.superview!.backgroundColor = UIColor.white
-//        let insets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-//        self.view.frame = UIEdgeInsetsInsetRect(self.view.superview!.bounds, insets)
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.showTutorial {
+            TutorialController.shared.searchTutorial(viewController: self, title:  "You made it to the second tab! Congratulations!", message: "In this tab, you can view the yardsales that you have saved. If you change your mind about a yardsale, you can swipe to delete it. \n\nClick on a yardsale to see the detail!", alertActionTitle: "Show me the yardsale details", completion: {
+                UserDefaults.standard.set(false, forKey: "showSavedListTutorial")
+                self.showTutorial = false
+                if let index = YardsaleController.shared.savedYardsales.index(of: self.dummyYardsale) {
+                    YardsaleController.shared.savedYardsales.remove(at: index)
+                }
+                self.performSegue(withIdentifier: "toYardsaleDetail", sender: self)
+                
+            })
+        }
+    }
+    
+    
+    //    override func viewDidLayoutSubviews() {
+    //        super.viewDidLayoutSubviews()
+    //        self.view.superview!.backgroundColor = UIColor.white
+    //        let insets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+    //        self.view.frame = UIEdgeInsetsInsetRect(self.view.superview!.bounds, insets)
+    //    }
     
     // MARK: - Table view data source
     

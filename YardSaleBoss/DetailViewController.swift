@@ -24,6 +24,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var yardsaleStateTextField: UITextField!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
     
+    var showTutorial = false
+    
     
     var yardsale: Yardsale? {
         didSet {
@@ -95,6 +97,31 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         self.yardsaleStreetAddressTextField.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.textFieldShouldReturn))
         view.addGestureRecognizer(tapGesture)
+        if let showTutorial = UserDefaults.standard.object(forKey: "showDetailViewTutorial") as? Bool {
+            self.showTutorial = showTutorial
+            UserDefaults.standard.set(showTutorial, forKey: "showDetailViewTutorial")
+        } else {
+            self.showTutorial = true
+            UserDefaults.standard.set(true, forKey: "showDetailViewTutorial")
+        }
+        if self.showTutorial {
+            self.yardsale = Yardsale(title: "Mock Yardsale", yardsaleDescription: "This is a demonstration yardsale. Normally people would post the address of the yardsale here. Here is a sample address: \n\n Address: 301 S Temple, Salt Lake City, UT. You will need to copy the street address and paste it in the address box above. Also, check the city and state. No abbreviations are allowed for the city. For example, SLC will not work. It needs to say Salt Lake City (capitalization is not important). ", yardsaleURL: "www.someRandomYardsale.com", imageURL: "www.randomimage.com", timeOnSite: "30min", cityStateString: "Salt Lake City, UT", image: #imageLiteral(resourceName: "dummyYardsale"), kslID: "gibberish")
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.showTutorial {
+            TutorialController.shared.searchTutorial(viewController: self, title:  "This shows yardsale details!", message: "Here you can edit yardsales. You can correct the city and state if needed. You can copy and past the address from the description to the address box. The city cannot be an abbreviation. Make sure to click save (top right corner) when you're done editing. Only the first user needs to update the address, city, and state. After that, those updates are available to everyone!\n\nOnly yardsales you edit and save will be stored in your list when you close and reopen the app.", alertActionTitle: "Show me the next tab!", completion: {
+                self.yardsale = nil
+                UserDefaults.standard.set(false, forKey: "showDetailViewTutorial")
+                self.showTutorial = false
+                if let navController = self.navigationController {
+                    navController.popViewController(animated: true)
+                }
+                self.tabBarController?.selectedIndex = 2
+            })
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

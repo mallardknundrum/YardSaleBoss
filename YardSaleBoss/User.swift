@@ -14,6 +14,7 @@ class User {
     static var startAddress = ""
     static var endAddress = ""
     static var savedYardsaleIDs: [String] = []
+    static var showTutorial = true
 }
 
 
