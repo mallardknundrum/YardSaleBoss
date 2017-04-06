@@ -490,7 +490,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 31D4572E8BEE1ACDF79236F8 /* Pods-YardSaleBoss.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = YardSaleBoss/YardSaleBoss.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 33GW7EC95V;
@@ -506,7 +505,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A632C5C0A9E87B9E6BC7B4D6 /* Pods-YardSaleBoss.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = YardSaleBoss/YardSaleBoss.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 33GW7EC95V;

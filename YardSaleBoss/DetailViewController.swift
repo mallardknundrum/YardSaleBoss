@@ -61,15 +61,15 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             if let error = error {
                 print("problem saving CKRecord \n\(error.localizedDescription)")
             }
-            if let record = record {
+            if let _ = record {
                 print("Succesfully saved record to cloud")
             }
         }
         CloudKitManager.shared.modifyRecords([ckRecord], perRecordCompletion: { (record, error) in
-            if let error = error {
+            if let _ = error {
                 print("failed to update CKR")
             }
-            if let record = record {
+            if let _ = record {
                 os_log("success updating record")
             }
         }) { (records, error) in
