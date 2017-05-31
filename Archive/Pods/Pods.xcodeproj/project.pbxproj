@@ -1,0 +1,684 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B7B0D3C3FD94A1CA09C8A4C7CA9AA94 /* HTMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B5E886B6934D6C77C61CAEF6B8EC5D4 /* HTMLReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C1E58FB71861FA2C5615998C74FBD60 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FF8B035005426ADA4C1B7082E59F4 /* HTMLParser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0EFA577FA055E6E6E0DA02DBA0D1ED2E /* HTMLTextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CE170F1F638F6F6274D78F9E0B3B5F /* HTMLTextNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1FA1BB1F3C02933D6AD975B0C9A6EBFB /* NSString+HTMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = A47C8B7ACA1DB177C69834D7D5B12774 /* NSString+HTMLEntities.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2F5278DBD8D0D7F478191991134320F2 /* HTMLSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A96E85D2AFF6BE95DFE5BC9A1A6D41 /* HTMLSelector.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		30E1199A9A46DE5EEA3C6A8631692914 /* HTMLDocumentType.m in Sources */ = {isa = PBXBuildFile; fileRef = D7033525DDAF6D4DA4C2A107DE533744 /* HTMLDocumentType.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3AA006B8D72BF146566790CF214B5BE7 /* HTMLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFB347CED01AC9056585AE75E491675 /* HTMLString.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		41053A594A70D5E8BC7068BB3CF511BC /* HTMLOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4427907CCA905463FDFBE45DC63F13C /* HTMLOrderedDictionary.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		42E3200AA265FF39BBBEA4DECD3FD70F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		4629B256870521D833EFA9E050558814 /* HTMLDocumentType.h in Headers */ = {isa = PBXBuildFile; fileRef = D48F127E7AB1A9C3F5808537649909F7 /* HTMLDocumentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49EA3A1E383F97D744131837E581DFAC /* HTMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2931CE1944614A2B4F9B8C0976595A /* HTMLEntities.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4DB5F6986AE389740AC74BD004A4A71F /* HTMLComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253946446746733899163B0674B2A58 /* HTMLComment.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4EDCB787AFADBC2BCFDE9814271B438F /* HTMLPreprocessedInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 03540100F5382541D3768692CBDD37E1 /* HTMLPreprocessedInputStream.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		50AFDD3AB7542CA5092449354A4C6574 /* HTMLTreeEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 86106B873CEDC2252A82CD462BA68132 /* HTMLTreeEnumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		52F91E34C0EC14A02373664DF78CFC37 /* HTMLTokenizerState.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D1842C4D8B49D47A8FF18887AAC4985 /* HTMLTokenizerState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5639957B716C8E17E6660ADB4B4437A2 /* HTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 209C2E3524C8819E1BBE90E76FF57534 /* HTMLElement.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		575BBD8F30E2C40573CA8FC6996C145D /* HTMLQuirksMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 359888808992266A5A6E02AAD3F23FF6 /* HTMLQuirksMode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5EFAFBE14A55FD86A4CC1C99B6059E86 /* HTMLTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B6DD8C405E4F4383B58CD99B63810B /* HTMLTokenizer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		612C32B99A1FCBE13F14862AEB46E939 /* Pods-YardSaleBoss-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6210E6F3109D018C48CD1590698B733E /* Pods-YardSaleBoss-dummy.m */; };
+		708A6349B623B7475259B596B260528D /* HTMLTreeEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1636F19CEDA0FC9322F4F67B9C377B /* HTMLTreeEnumerator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		751838C6AA8156DD5CE70FB9D2CE067D /* NSString+HTMLEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = F3E97C683BDBC8B8BFF1DC5E373DF934 /* NSString+HTMLEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8633D189C54CE525E06084B1732413CC /* HTMLSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 668885D9DCFA8B559625DD155FFCEAC6 /* HTMLSerialization.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8FCFBFF53033C24C671E25C21809716B /* HTMLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 728BCC301E6B99C80FA7B5775737D778 /* HTMLEncoding.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9627150074E6DCFDCB152D6B979CB15E /* HTMLEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BB0569F73367CB2A6A348AA253EB763 /* HTMLEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		97C142D427ECFD35D00F2FEE48C499C6 /* HTMLSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = BA9AE85F38C5829A9D3FC437BA992CE3 /* HTMLSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9846A2A4B43F8A31C74104B2623D1B55 /* HTMLString.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BC7F63A6B145C7C22088A2DFF8B13 /* HTMLString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9991C42BF80E89F425C3EA87095C6703 /* HTMLOrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A97A12A18C8154C44BA5988F54EF6B /* HTMLOrderedDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99CC97363CC47E3A580F39EA458F276D /* HTMLTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E70AC4A4F94168BEBCBE3C0373D12B3 /* HTMLTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A06BE21842DB055F399C23F4A6A2DE76 /* HTMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DD83E30D31477DFB500C022DA88BF96 /* HTMLDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A4D05B05B0AC7973FC9585D151C104DB /* HTMLNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = DA408A7E2667F368C73DA60049D00B8E /* HTMLNamespace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9AD934DDD6A0BFC88B1D0A34950E514 /* HTMLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = B7A14F44A3DE384078EB87A4C85F9FB9 /* HTMLEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3AD706117C9E5F325FE45BECAAA108B /* HTMLSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BE1080D5D5C12AE5D0EB8B7F66C45B4 /* HTMLSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BBE002D1186184E217E18F06942E0A5B /* HTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 523234B205629DE7D675CAB01996943B /* HTMLDocument.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C5E52F03C89146AB89CB0ACC636DD459 /* HTMLTextNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 62341A049FA570968FFF128ABF03ECB7 /* HTMLTextNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C837DB8B190FB34226022330A7A36ACA /* HTMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D13C0BA7D51D14F40098BE855F3595A6 /* HTMLElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8AAA29EA0824CAFD6D8765DE98F35BD /* HTMLSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C3513565ACDB4D9A0952C49BA6B43D8 /* HTMLSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8FE8A216D684394AE4FF5D6A1C0FCC3 /* HTMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28363B5903E58F51DA9FAE97CDFE4315 /* HTMLParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4A7F7902BE8A814C4F551E08E0F4223 /* HTMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 122F3AB495D59626671BB1B55E8D046E /* HTMLNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E650D5E296CC6DDFA076E0F999884EFB /* Pods-YardSaleBoss-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F0C3E6468F61CF816D1EB38645D1E5A6 /* Pods-YardSaleBoss-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6C422EEDF6A53E713BAB6EF45BEE055 /* HTMLReader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0CC54D5C4628C4630115A52C3BB026 /* HTMLReader-dummy.m */; };
+		EA28F616EA3BD92A59FFC9E2335EA3E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		EE7BEF64618F7BB9A44E72F13E0C8CEB /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 05191A9F4139634FA50121F321B14190 /* HTMLNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EF4B15DCD9FDFF898E9D2D265E3BE26D /* HTMLComment.h in Headers */ = {isa = PBXBuildFile; fileRef = 6465BEFF4FBCDFB63B59C79215433704 /* HTMLComment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F15C88AE1276B5403C23F07D3411A45C /* HTMLPreprocessedInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E3A548D6CA231D795A0832835632351 /* HTMLPreprocessedInputStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8C53BD5BF4ACB265EF82CCF3F7E09EB /* HTMLReader-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 75F9DB0E579F1953E2DFE6C1BDA93B80 /* HTMLReader-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C75E3E943EC86655583D09BA97D22F81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47F97513F18A7C18CBAD04E258B6F83E;
+			remoteInfo = HTMLReader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03540100F5382541D3768692CBDD37E1 /* HTMLPreprocessedInputStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLPreprocessedInputStream.m; path = Sources/HTMLPreprocessedInputStream.m; sourceTree = "<group>"; };
+		05191A9F4139634FA50121F321B14190 /* HTMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLNode.m; path = Sources/HTMLNode.m; sourceTree = "<group>"; };
+		122F3AB495D59626671BB1B55E8D046E /* HTMLNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLNode.h; path = Sources/include/HTMLNode.h; sourceTree = "<group>"; };
+		209C2E3524C8819E1BBE90E76FF57534 /* HTMLElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLElement.m; path = Sources/HTMLElement.m; sourceTree = "<group>"; };
+		2253946446746733899163B0674B2A58 /* HTMLComment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLComment.m; path = Sources/HTMLComment.m; sourceTree = "<group>"; };
+		28363B5903E58F51DA9FAE97CDFE4315 /* HTMLParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLParser.h; path = Sources/include/HTMLParser.h; sourceTree = "<group>"; };
+		28A96E85D2AFF6BE95DFE5BC9A1A6D41 /* HTMLSelector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLSelector.m; path = Sources/HTMLSelector.m; sourceTree = "<group>"; };
+		2B5FF8B035005426ADA4C1B7082E59F4 /* HTMLParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLParser.m; path = Sources/HTMLParser.m; sourceTree = "<group>"; };
+		2D5DE4C1D649B5DF02C3543330C818BF /* Pods-YardSaleBoss.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-YardSaleBoss.modulemap"; sourceTree = "<group>"; };
+		2DD83E30D31477DFB500C022DA88BF96 /* HTMLDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLDocument.h; path = Sources/include/HTMLDocument.h; sourceTree = "<group>"; };
+		359888808992266A5A6E02AAD3F23FF6 /* HTMLQuirksMode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLQuirksMode.h; path = Sources/include/HTMLQuirksMode.h; sourceTree = "<group>"; };
+		361C0E950F430A6ED66E1398BBF6F6F6 /* Pods-YardSaleBoss-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YardSaleBoss-acknowledgements.plist"; sourceTree = "<group>"; };
+		3B0CC54D5C4628C4630115A52C3BB026 /* HTMLReader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HTMLReader-dummy.m"; sourceTree = "<group>"; };
+		3D1842C4D8B49D47A8FF18887AAC4985 /* HTMLTokenizerState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTokenizerState.h; path = Sources/include/HTMLTokenizerState.h; sourceTree = "<group>"; };
+		4293B20CD68B88581E78A92C45BFB433 /* HTMLReader-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HTMLReader-prefix.pch"; sourceTree = "<group>"; };
+		4BB0569F73367CB2A6A348AA253EB763 /* HTMLEntities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLEntities.h; path = Sources/include/HTMLEntities.h; sourceTree = "<group>"; };
+		4BE1080D5D5C12AE5D0EB8B7F66C45B4 /* HTMLSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLSerialization.h; path = Sources/include/HTMLSerialization.h; sourceTree = "<group>"; };
+		4E3A548D6CA231D795A0832835632351 /* HTMLPreprocessedInputStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLPreprocessedInputStream.h; path = Sources/include/HTMLPreprocessedInputStream.h; sourceTree = "<group>"; };
+		523234B205629DE7D675CAB01996943B /* HTMLDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLDocument.m; path = Sources/HTMLDocument.m; sourceTree = "<group>"; };
+		5E70AC4A4F94168BEBCBE3C0373D12B3 /* HTMLTokenizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTokenizer.h; path = Sources/include/HTMLTokenizer.h; sourceTree = "<group>"; };
+		6210E6F3109D018C48CD1590698B733E /* Pods-YardSaleBoss-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YardSaleBoss-dummy.m"; sourceTree = "<group>"; };
+		62341A049FA570968FFF128ABF03ECB7 /* HTMLTextNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTextNode.h; path = Sources/include/HTMLTextNode.h; sourceTree = "<group>"; };
+		637F400EEDCE581D6B46353FC2D61C25 /* Pods-YardSaleBoss-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YardSaleBoss-resources.sh"; sourceTree = "<group>"; };
+		6465BEFF4FBCDFB63B59C79215433704 /* HTMLComment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLComment.h; path = Sources/include/HTMLComment.h; sourceTree = "<group>"; };
+		668885D9DCFA8B559625DD155FFCEAC6 /* HTMLSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLSerialization.m; path = Sources/HTMLSerialization.m; sourceTree = "<group>"; };
+		6EB6D5FF9F5881C928D60033991FE26B /* HTMLReader.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HTMLReader.xcconfig; sourceTree = "<group>"; };
+		728BCC301E6B99C80FA7B5775737D778 /* HTMLEncoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLEncoding.m; path = Sources/HTMLEncoding.m; sourceTree = "<group>"; };
+		749517BFC6F9A454B780D90019B606CC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75F9DB0E579F1953E2DFE6C1BDA93B80 /* HTMLReader-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HTMLReader-umbrella.h"; sourceTree = "<group>"; };
+		80CE170F1F638F6F6274D78F9E0B3B5F /* HTMLTextNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLTextNode.m; path = Sources/HTMLTextNode.m; sourceTree = "<group>"; };
+		81EC2C1944760907888FC45F45625971 /* Pods-YardSaleBoss-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YardSaleBoss-frameworks.sh"; sourceTree = "<group>"; };
+		831288B52C876AD38A5500905958B593 /* Pods-YardSaleBoss.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YardSaleBoss.release.xcconfig"; sourceTree = "<group>"; };
+		86106B873CEDC2252A82CD462BA68132 /* HTMLTreeEnumerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTreeEnumerator.h; path = Sources/include/HTMLTreeEnumerator.h; sourceTree = "<group>"; };
+		8B2931CE1944614A2B4F9B8C0976595A /* HTMLEntities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLEntities.m; path = Sources/HTMLEntities.m; sourceTree = "<group>"; };
+		8B5E886B6934D6C77C61CAEF6B8EC5D4 /* HTMLReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLReader.h; path = Sources/include/HTMLReader.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94A97A12A18C8154C44BA5988F54EF6B /* HTMLOrderedDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLOrderedDictionary.h; path = Sources/include/HTMLOrderedDictionary.h; sourceTree = "<group>"; };
+		9C3513565ACDB4D9A0952C49BA6B43D8 /* HTMLSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLSupport.h; path = Sources/include/HTMLSupport.h; sourceTree = "<group>"; };
+		9FFB347CED01AC9056585AE75E491675 /* HTMLString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLString.m; path = Sources/HTMLString.m; sourceTree = "<group>"; };
+		A36DDDF3EA9A17451C816CC893401DBE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A47C8B7ACA1DB177C69834D7D5B12774 /* NSString+HTMLEntities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTMLEntities.m"; path = "Sources/NSString+HTMLEntities.m"; sourceTree = "<group>"; };
+		A6B6DD8C405E4F4383B58CD99B63810B /* HTMLTokenizer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLTokenizer.m; path = Sources/HTMLTokenizer.m; sourceTree = "<group>"; };
+		A941E76900134D53FCB80307D678C916 /* Pods_YardSaleBoss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YardSaleBoss.framework; path = "Pods-YardSaleBoss.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7A14F44A3DE384078EB87A4C85F9FB9 /* HTMLEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLEncoding.h; path = Sources/include/HTMLEncoding.h; sourceTree = "<group>"; };
+		BA8C9BDB67D9018D29CF1E2BCD92FE7C /* Pods-YardSaleBoss.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YardSaleBoss.debug.xcconfig"; sourceTree = "<group>"; };
+		BA9AE85F38C5829A9D3FC437BA992CE3 /* HTMLSelector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLSelector.h; path = Sources/include/HTMLSelector.h; sourceTree = "<group>"; };
+		BE1636F19CEDA0FC9322F4F67B9C377B /* HTMLTreeEnumerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLTreeEnumerator.m; path = Sources/HTMLTreeEnumerator.m; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D13C0BA7D51D14F40098BE855F3595A6 /* HTMLElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLElement.h; path = Sources/include/HTMLElement.h; sourceTree = "<group>"; };
+		D2E6209FB3C39DF0FED2D8BB3079DE5D /* Pods-YardSaleBoss-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YardSaleBoss-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D48F127E7AB1A9C3F5808537649909F7 /* HTMLDocumentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLDocumentType.h; path = Sources/include/HTMLDocumentType.h; sourceTree = "<group>"; };
+		D7033525DDAF6D4DA4C2A107DE533744 /* HTMLDocumentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLDocumentType.m; path = Sources/HTMLDocumentType.m; sourceTree = "<group>"; };
+		DA408A7E2667F368C73DA60049D00B8E /* HTMLNamespace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLNamespace.h; path = Sources/include/HTMLNamespace.h; sourceTree = "<group>"; };
+		DF8BB49369FF64CD880A6A07728E2242 /* HTMLReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HTMLReader.framework; path = HTMLReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF7BC7F63A6B145C7C22088A2DFF8B13 /* HTMLString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLString.h; path = Sources/include/HTMLString.h; sourceTree = "<group>"; };
+		F0C3E6468F61CF816D1EB38645D1E5A6 /* Pods-YardSaleBoss-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YardSaleBoss-umbrella.h"; sourceTree = "<group>"; };
+		F3E97C683BDBC8B8BFF1DC5E373DF934 /* NSString+HTMLEntities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+HTMLEntities.h"; path = "Sources/include/NSString+HTMLEntities.h"; sourceTree = "<group>"; };
+		F4427907CCA905463FDFBE45DC63F13C /* HTMLOrderedDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLOrderedDictionary.m; path = Sources/HTMLOrderedDictionary.m; sourceTree = "<group>"; };
+		FDD68FA697A8C0309486747EEE70CE63 /* HTMLReader.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = HTMLReader.modulemap; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B50D6AE2B793E438007E25EED87FDA47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42E3200AA265FF39BBBEA4DECD3FD70F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC905E7C1D1A124962D5D7978456C7EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA28F616EA3BD92A59FFC9E2335EA3E0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02D30CEAA6D3DD9CD4916895EA2769E3 /* Pods-YardSaleBoss */ = {
+			isa = PBXGroup;
+			children = (
+				749517BFC6F9A454B780D90019B606CC /* Info.plist */,
+				2D5DE4C1D649B5DF02C3543330C818BF /* Pods-YardSaleBoss.modulemap */,
+				D2E6209FB3C39DF0FED2D8BB3079DE5D /* Pods-YardSaleBoss-acknowledgements.markdown */,
+				361C0E950F430A6ED66E1398BBF6F6F6 /* Pods-YardSaleBoss-acknowledgements.plist */,
+				6210E6F3109D018C48CD1590698B733E /* Pods-YardSaleBoss-dummy.m */,
+				81EC2C1944760907888FC45F45625971 /* Pods-YardSaleBoss-frameworks.sh */,
+				637F400EEDCE581D6B46353FC2D61C25 /* Pods-YardSaleBoss-resources.sh */,
+				F0C3E6468F61CF816D1EB38645D1E5A6 /* Pods-YardSaleBoss-umbrella.h */,
+				BA8C9BDB67D9018D29CF1E2BCD92FE7C /* Pods-YardSaleBoss.debug.xcconfig */,
+				831288B52C876AD38A5500905958B593 /* Pods-YardSaleBoss.release.xcconfig */,
+			);
+			name = "Pods-YardSaleBoss";
+			path = "Target Support Files/Pods-YardSaleBoss";
+			sourceTree = "<group>";
+		};
+		665CCD5DB41AEBA348345AA72DCB56F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF8BB49369FF64CD880A6A07728E2242 /* HTMLReader.framework */,
+				A941E76900134D53FCB80307D678C916 /* Pods_YardSaleBoss.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				8C4046E2AA91C439559C8B9BFD4EBE34 /* Pods */,
+				665CCD5DB41AEBA348345AA72DCB56F4 /* Products */,
+				8CE54AAB176A885AF59DB248F584D99A /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7FE646C131F85711D59A2B502D6C31BD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FDD68FA697A8C0309486747EEE70CE63 /* HTMLReader.modulemap */,
+				6EB6D5FF9F5881C928D60033991FE26B /* HTMLReader.xcconfig */,
+				3B0CC54D5C4628C4630115A52C3BB026 /* HTMLReader-dummy.m */,
+				4293B20CD68B88581E78A92C45BFB433 /* HTMLReader-prefix.pch */,
+				75F9DB0E579F1953E2DFE6C1BDA93B80 /* HTMLReader-umbrella.h */,
+				A36DDDF3EA9A17451C816CC893401DBE /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/HTMLReader";
+			sourceTree = "<group>";
+		};
+		8C4046E2AA91C439559C8B9BFD4EBE34 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9210A183201D1BA0BA863953DD9C35CE /* HTMLReader */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8CE54AAB176A885AF59DB248F584D99A /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				02D30CEAA6D3DD9CD4916895EA2769E3 /* Pods-YardSaleBoss */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		9210A183201D1BA0BA863953DD9C35CE /* HTMLReader */ = {
+			isa = PBXGroup;
+			children = (
+				6465BEFF4FBCDFB63B59C79215433704 /* HTMLComment.h */,
+				2253946446746733899163B0674B2A58 /* HTMLComment.m */,
+				2DD83E30D31477DFB500C022DA88BF96 /* HTMLDocument.h */,
+				523234B205629DE7D675CAB01996943B /* HTMLDocument.m */,
+				D48F127E7AB1A9C3F5808537649909F7 /* HTMLDocumentType.h */,
+				D7033525DDAF6D4DA4C2A107DE533744 /* HTMLDocumentType.m */,
+				D13C0BA7D51D14F40098BE855F3595A6 /* HTMLElement.h */,
+				209C2E3524C8819E1BBE90E76FF57534 /* HTMLElement.m */,
+				B7A14F44A3DE384078EB87A4C85F9FB9 /* HTMLEncoding.h */,
+				728BCC301E6B99C80FA7B5775737D778 /* HTMLEncoding.m */,
+				4BB0569F73367CB2A6A348AA253EB763 /* HTMLEntities.h */,
+				8B2931CE1944614A2B4F9B8C0976595A /* HTMLEntities.m */,
+				DA408A7E2667F368C73DA60049D00B8E /* HTMLNamespace.h */,
+				122F3AB495D59626671BB1B55E8D046E /* HTMLNode.h */,
+				05191A9F4139634FA50121F321B14190 /* HTMLNode.m */,
+				94A97A12A18C8154C44BA5988F54EF6B /* HTMLOrderedDictionary.h */,
+				F4427907CCA905463FDFBE45DC63F13C /* HTMLOrderedDictionary.m */,
+				28363B5903E58F51DA9FAE97CDFE4315 /* HTMLParser.h */,
+				2B5FF8B035005426ADA4C1B7082E59F4 /* HTMLParser.m */,
+				4E3A548D6CA231D795A0832835632351 /* HTMLPreprocessedInputStream.h */,
+				03540100F5382541D3768692CBDD37E1 /* HTMLPreprocessedInputStream.m */,
+				359888808992266A5A6E02AAD3F23FF6 /* HTMLQuirksMode.h */,
+				8B5E886B6934D6C77C61CAEF6B8EC5D4 /* HTMLReader.h */,
+				BA9AE85F38C5829A9D3FC437BA992CE3 /* HTMLSelector.h */,
+				28A96E85D2AFF6BE95DFE5BC9A1A6D41 /* HTMLSelector.m */,
+				4BE1080D5D5C12AE5D0EB8B7F66C45B4 /* HTMLSerialization.h */,
+				668885D9DCFA8B559625DD155FFCEAC6 /* HTMLSerialization.m */,
+				EF7BC7F63A6B145C7C22088A2DFF8B13 /* HTMLString.h */,
+				9FFB347CED01AC9056585AE75E491675 /* HTMLString.m */,
+				9C3513565ACDB4D9A0952C49BA6B43D8 /* HTMLSupport.h */,
+				62341A049FA570968FFF128ABF03ECB7 /* HTMLTextNode.h */,
+				80CE170F1F638F6F6274D78F9E0B3B5F /* HTMLTextNode.m */,
+				5E70AC4A4F94168BEBCBE3C0373D12B3 /* HTMLTokenizer.h */,
+				A6B6DD8C405E4F4383B58CD99B63810B /* HTMLTokenizer.m */,
+				3D1842C4D8B49D47A8FF18887AAC4985 /* HTMLTokenizerState.h */,
+				86106B873CEDC2252A82CD462BA68132 /* HTMLTreeEnumerator.h */,
+				BE1636F19CEDA0FC9322F4F67B9C377B /* HTMLTreeEnumerator.m */,
+				F3E97C683BDBC8B8BFF1DC5E373DF934 /* NSString+HTMLEntities.h */,
+				A47C8B7ACA1DB177C69834D7D5B12774 /* NSString+HTMLEntities.m */,
+				7FE646C131F85711D59A2B502D6C31BD /* Support Files */,
+			);
+			name = HTMLReader;
+			path = HTMLReader;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2462420AAAE8A1E1B8630A89FC6C9BD2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4B15DCD9FDFF898E9D2D265E3BE26D /* HTMLComment.h in Headers */,
+				A06BE21842DB055F399C23F4A6A2DE76 /* HTMLDocument.h in Headers */,
+				4629B256870521D833EFA9E050558814 /* HTMLDocumentType.h in Headers */,
+				C837DB8B190FB34226022330A7A36ACA /* HTMLElement.h in Headers */,
+				A9AD934DDD6A0BFC88B1D0A34950E514 /* HTMLEncoding.h in Headers */,
+				9627150074E6DCFDCB152D6B979CB15E /* HTMLEntities.h in Headers */,
+				A4D05B05B0AC7973FC9585D151C104DB /* HTMLNamespace.h in Headers */,
+				D4A7F7902BE8A814C4F551E08E0F4223 /* HTMLNode.h in Headers */,
+				9991C42BF80E89F425C3EA87095C6703 /* HTMLOrderedDictionary.h in Headers */,
+				C8FE8A216D684394AE4FF5D6A1C0FCC3 /* HTMLParser.h in Headers */,
+				F15C88AE1276B5403C23F07D3411A45C /* HTMLPreprocessedInputStream.h in Headers */,
+				575BBD8F30E2C40573CA8FC6996C145D /* HTMLQuirksMode.h in Headers */,
+				F8C53BD5BF4ACB265EF82CCF3F7E09EB /* HTMLReader-umbrella.h in Headers */,
+				0B7B0D3C3FD94A1CA09C8A4C7CA9AA94 /* HTMLReader.h in Headers */,
+				97C142D427ECFD35D00F2FEE48C499C6 /* HTMLSelector.h in Headers */,
+				B3AD706117C9E5F325FE45BECAAA108B /* HTMLSerialization.h in Headers */,
+				9846A2A4B43F8A31C74104B2623D1B55 /* HTMLString.h in Headers */,
+				C8AAA29EA0824CAFD6D8765DE98F35BD /* HTMLSupport.h in Headers */,
+				C5E52F03C89146AB89CB0ACC636DD459 /* HTMLTextNode.h in Headers */,
+				99CC97363CC47E3A580F39EA458F276D /* HTMLTokenizer.h in Headers */,
+				52F91E34C0EC14A02373664DF78CFC37 /* HTMLTokenizerState.h in Headers */,
+				50AFDD3AB7542CA5092449354A4C6574 /* HTMLTreeEnumerator.h in Headers */,
+				751838C6AA8156DD5CE70FB9D2CE067D /* NSString+HTMLEntities.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A2E972E6DFFC9EA333124B2E0FD1866 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E650D5E296CC6DDFA076E0F999884EFB /* Pods-YardSaleBoss-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		47F97513F18A7C18CBAD04E258B6F83E /* HTMLReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3D66A20DDBA77125E8EB7705FECBD16 /* Build configuration list for PBXNativeTarget "HTMLReader" */;
+			buildPhases = (
+				8F5C724A681CD88348B87957937FE82F /* Sources */,
+				B50D6AE2B793E438007E25EED87FDA47 /* Frameworks */,
+				2462420AAAE8A1E1B8630A89FC6C9BD2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HTMLReader;
+			productName = HTMLReader;
+			productReference = DF8BB49369FF64CD880A6A07728E2242 /* HTMLReader.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		68D5A4B2FBCA0B8071FA4A8CBD2E23DD /* Pods-YardSaleBoss */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C45C7D88437C63417E53359CFAD64C8 /* Build configuration list for PBXNativeTarget "Pods-YardSaleBoss" */;
+			buildPhases = (
+				22E8D89CB86C6A94DFAECD19D966FD08 /* Sources */,
+				BC905E7C1D1A124962D5D7978456C7EB /* Frameworks */,
+				8A2E972E6DFFC9EA333124B2E0FD1866 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2AE67C13FA1B6CDBDE9371DF7E5AEBD /* PBXTargetDependency */,
+			);
+			name = "Pods-YardSaleBoss";
+			productName = "Pods-YardSaleBoss";
+			productReference = A941E76900134D53FCB80307D678C916 /* Pods_YardSaleBoss.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 665CCD5DB41AEBA348345AA72DCB56F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47F97513F18A7C18CBAD04E258B6F83E /* HTMLReader */,
+				68D5A4B2FBCA0B8071FA4A8CBD2E23DD /* Pods-YardSaleBoss */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22E8D89CB86C6A94DFAECD19D966FD08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				612C32B99A1FCBE13F14862AEB46E939 /* Pods-YardSaleBoss-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F5C724A681CD88348B87957937FE82F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DB5F6986AE389740AC74BD004A4A71F /* HTMLComment.m in Sources */,
+				BBE002D1186184E217E18F06942E0A5B /* HTMLDocument.m in Sources */,
+				30E1199A9A46DE5EEA3C6A8631692914 /* HTMLDocumentType.m in Sources */,
+				5639957B716C8E17E6660ADB4B4437A2 /* HTMLElement.m in Sources */,
+				8FCFBFF53033C24C671E25C21809716B /* HTMLEncoding.m in Sources */,
+				49EA3A1E383F97D744131837E581DFAC /* HTMLEntities.m in Sources */,
+				EE7BEF64618F7BB9A44E72F13E0C8CEB /* HTMLNode.m in Sources */,
+				41053A594A70D5E8BC7068BB3CF511BC /* HTMLOrderedDictionary.m in Sources */,
+				0C1E58FB71861FA2C5615998C74FBD60 /* HTMLParser.m in Sources */,
+				4EDCB787AFADBC2BCFDE9814271B438F /* HTMLPreprocessedInputStream.m in Sources */,
+				E6C422EEDF6A53E713BAB6EF45BEE055 /* HTMLReader-dummy.m in Sources */,
+				2F5278DBD8D0D7F478191991134320F2 /* HTMLSelector.m in Sources */,
+				8633D189C54CE525E06084B1732413CC /* HTMLSerialization.m in Sources */,
+				3AA006B8D72BF146566790CF214B5BE7 /* HTMLString.m in Sources */,
+				0EFA577FA055E6E6E0DA02DBA0D1ED2E /* HTMLTextNode.m in Sources */,
+				5EFAFBE14A55FD86A4CC1C99B6059E86 /* HTMLTokenizer.m in Sources */,
+				708A6349B623B7475259B596B260528D /* HTMLTreeEnumerator.m in Sources */,
+				1FA1BB1F3C02933D6AD975B0C9A6EBFB /* NSString+HTMLEntities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D2AE67C13FA1B6CDBDE9371DF7E5AEBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HTMLReader;
+			target = 47F97513F18A7C18CBAD04E258B6F83E /* HTMLReader */;
+			targetProxy = C75E3E943EC86655583D09BA97D22F81 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		565FF0B04B55B033D0B4B7BEAC93D7E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA8C9BDB67D9018D29CF1E2BCD92FE7C /* Pods-YardSaleBoss.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-YardSaleBoss/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-YardSaleBoss/Pods-YardSaleBoss.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_YardSaleBoss;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		673254EEAF0B5BF4596080C749645884 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7021D6B70CA40A2DABA3CBBF3D24CF92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EB6D5FF9F5881C928D60033991FE26B /* HTMLReader.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HTMLReader/HTMLReader-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HTMLReader/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HTMLReader/HTMLReader.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = HTMLReader;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7FD90562C49EB9ADA18AC764EBA5E5D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 831288B52C876AD38A5500905958B593 /* Pods-YardSaleBoss.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-YardSaleBoss/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-YardSaleBoss/Pods-YardSaleBoss.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_YardSaleBoss;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DB104EBC595C69A8485CB7EA4054F9F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EB6D5FF9F5881C928D60033991FE26B /* HTMLReader.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HTMLReader/HTMLReader-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HTMLReader/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HTMLReader/HTMLReader.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = HTMLReader;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */,
+				673254EEAF0B5BF4596080C749645884 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C45C7D88437C63417E53359CFAD64C8 /* Build configuration list for PBXNativeTarget "Pods-YardSaleBoss" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				565FF0B04B55B033D0B4B7BEAC93D7E4 /* Debug */,
+				7FD90562C49EB9ADA18AC764EBA5E5D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3D66A20DDBA77125E8EB7705FECBD16 /* Build configuration list for PBXNativeTarget "HTMLReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB104EBC595C69A8485CB7EA4054F9F8 /* Debug */,
+				7021D6B70CA40A2DABA3CBBF3D24CF92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
