@@ -13,6 +13,8 @@ class SavedYardsalesTableViewController: UITableViewController {
     var showTutorial = false
     var dummyYardsale = Yardsale(title: "Mock Yardsale", yardsaleDescription: "This is a demonstration yardsale. Normally people would post the address of the yardsale here. Here is a sample address: \n\n Address: 301 S Temple, Salt Lake City, UT. You will need to copy the street address and paste it in the address box above. Also, check the city and state. No abbreviations are allowed for the city. For example, SLC will not work. It needs to say Salt Lake City (capitalization is not important). ", yardsaleURL: "www.someRandomYardsale.com", imageURL: "www.randomimage.com", timeOnSite: "30min", cityStateString: "Salt Lake City, UT", image: #imageLiteral(resourceName: "dummyYardsale"), kslID: "gibberish")
     
+    
+    // MARK: - Tableview lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         if let showTutorial = UserDefaults.standard.object(forKey: "showSavedListTutorial") as? Bool {
@@ -54,13 +56,6 @@ class SavedYardsalesTableViewController: UITableViewController {
         }
     }
     
-    
-    //    override func viewDidLayoutSubviews() {
-    //        super.viewDidLayoutSubviews()
-    //        self.view.superview!.backgroundColor = UIColor.white
-    //        let insets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-    //        self.view.frame = UIEdgeInsetsInsetRect(self.view.superview!.bounds, insets)
-    //    }
     
     // MARK: - Table view data source
     

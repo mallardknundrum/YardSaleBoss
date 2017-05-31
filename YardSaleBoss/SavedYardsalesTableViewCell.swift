@@ -9,16 +9,28 @@
 import UIKit
 
 class SavedYardsalesTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var yardsaleImageView: UIImageView!
+    
     @IBOutlet weak var yardsaleCityStateLabel: UILabel!
+    
     @IBOutlet weak var yardsaleTitleLabel: UILabel!
+    
     @IBOutlet weak var cloudStarImageView: UIImageView!
+    
+    
+    // MARK: - Properties
     
     var yardsale: Yardsale? {
         didSet {
             updateViews()
         }
     }
+    
+    
+    // MARK: - Update Views
     
     func updateViews() {
         guard let yardsale = yardsale else { return }
@@ -34,5 +46,4 @@ class SavedYardsalesTableViewCell: UITableViewCell {
             cloudStarImageView.isHidden = true
         }
     }
-
 }

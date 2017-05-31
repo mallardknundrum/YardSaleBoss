@@ -12,35 +12,50 @@ import Contacts
 
 class DirectionsViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate  {
     
-    var address: String?
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var startingAddressTextField: UITextField!
+    
     @IBOutlet weak var endingAddressTextField: UITextField!
+    
     @IBOutlet weak var showTutorialSwitchState: UISwitch!
     
+    
+    // MARK: - Properties
+    
+    var address: String?
+    
+    var showTutorial = false
+    
+    var showAllTutorials = false
+    
+    
+    // MARK: - IBActions
     
     @IBAction func showTutorialSwitchTapped(_ sender: Any) {
         tutorialSwitchTapped()
     }
+    
     @IBAction func troubleshootingButtonTapped(_ sender: Any) {
         troubleShootingAlert()
     }
+    
     @IBAction func useCurrentButtonTapped(_ sender: Any) {
         startingAddressTextField.text = address
     }
+    
     @IBAction func startAddClearButtonTapped(_ sender: Any) {
         startingAddressTextField.text = ""
     }
+    
     @IBAction func endAddUseCurrentTapped(_ sender: Any) {
         endingAddressTextField.text = address
     }
+    
     @IBAction func endAddClearButtonTapped(_ sender: Any) {
         endingAddressTextField.text = ""
     }
-    
-    var showTutorial = false
-    var showAllTutorials = false
-    
     
     @IBAction func directionsButtonTapped(_ sender: Any) {
         var startingAddress = ""
@@ -80,6 +95,9 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         GoogleDirectionsController.shared.fetchGoogleMapsLink()
     }
+    
+    
+    // MARK: - Tableview Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,9 +160,6 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     // MARK: - TextFieldDelegate
     func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
@@ -157,7 +172,9 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate, UIT
         endingAddressTextField.resignFirstResponder()
     }
     
-    // Convert to the newer CNPostalAddress
+    
+    // MARK: - Address functions
+    
     func postalAddressFromAddressDictionary(_ addressdictionary: Dictionary<NSObject,AnyObject>) -> CNMutablePostalAddress {
         let address = CNMutablePostalAddress()
         
@@ -170,10 +187,12 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate, UIT
         return address
     }
     
-    // Create a localized address string from an Address Dictionary
     func localizedStringForAddressDictionary(addressDictionary: Dictionary<NSObject,AnyObject>) -> String {
         return CNPostalAddressFormatter.string(from: postalAddressFromAddressDictionary(addressDictionary), style: .mailingAddress)
     }
+    
+    
+    // MARK: - Tutorial function
     
     func tutorialSwitchTapped() {
         if showTutorialSwitchState.isOn {
@@ -193,6 +212,7 @@ class DirectionsViewController: UIViewController, CLLocationManagerDelegate, UIT
             self.showAllTutorials = false
         }
     }
+    
     
     // MARK: - Alert controllers
     

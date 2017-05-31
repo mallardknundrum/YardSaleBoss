@@ -24,9 +24,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var yardsaleStateTextField: UITextField!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
     
+    
+    // MARK: - Properties
     var showTutorial = false
-    
-    
     var yardsale: Yardsale? {
         didSet {
             if isViewLoaded {
@@ -34,6 +34,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    
+    // MARK: - IBActions
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let yardsale = yardsale else { return }
         yardsale.streetAddress = yardsaleStreetAddressTextField.text?.replacingOccurrences(of: "#", with: "Apt")
@@ -78,13 +82,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+
     
-    
+    // MARK: - Tableview Lifecycle Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-//        self.navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
         self.navigationController?.navigationBar.backgroundColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
         self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
         self.navigationController?.navigationBar.tintColor = .red
@@ -136,7 +140,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
+    // MARK: - Update Views
     func updateViews() {
         guard let yardsale = yardsale else { return }
         if !isViewLoaded {
@@ -154,6 +158,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         yardsaleDescriptionTextView.text = yardsale.yardsaleDescription
         yardsaleDescriptionTextView.layer.cornerRadius = 10
     }
+    
+    
+    // MARK: - Keyboard management
     
     func textFieldResignFirstResponder(gesture: UITapGestureRecognizer) {
         yardsaleStreetAddressTextField.resignFirstResponder()

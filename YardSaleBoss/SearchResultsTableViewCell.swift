@@ -9,18 +9,33 @@
 import UIKit
 
 class SearchResultsTableViewCell: UITableViewCell {
+    
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var yardsaleImageView: UIImageView!
+    
     @IBOutlet weak var yardsaleCityStateTextLabel: UILabel!
+    
     @IBOutlet weak var yardsaleDescriptionTextView: UITextView!
+    
     @IBOutlet weak var yardsaleTitleLabel: UILabel!
+    
     @IBOutlet weak var selectedButton: UIButton!
+    
     @IBOutlet weak var cloudStarImageView: UIImageView!
+    
+    
+    // MARK: - Properties
     
     var yardsale: Yardsale? {
         didSet {
             updateViews()
         }
     }
+    
+    
+    // MARK: - IBActions
 
     @IBAction func selectButtonTapped(_ sender: Any) {
         
@@ -45,6 +60,8 @@ class SearchResultsTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    
+    // MARK: - Update Views
     
     func updateViews() {
         selectedButton.isEnabled = true
