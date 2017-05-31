@@ -14,28 +14,46 @@ import NotificationCenter
 
 class SearchResultsTableViewController: UITableViewController, CLLocationManagerDelegate {
     
-    // MARK: - Outlets / Properties
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var zipcodeTextField: UITextField!
+    
     @IBOutlet weak var cityTextField: UITextField!
+    
     @IBOutlet weak var stateTextField: UITextField!
+    
     @IBOutlet weak var searchRadiusTextField: UITextField!
+    
     @IBOutlet weak var switchState: UISwitch!
+    
     @IBOutlet weak var advancedSearchSwitchState: UISwitch!
+    
     @IBOutlet weak var searchBoxView: UIView!
+    
     @IBOutlet weak var advancedSerachBoxView: UIView!
+    
     @IBAction func advancedSearchSwitchStateChanged(_ sender: Any) {
         advancedSearchEnabled()
     }
+    
+    
+    // MARK: - Properties
+    
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
     var showTutorial = false
     
     let stateDictionary = ["UTAH": "UT", "IDAHO": "ID", "WYOMING": "WY"]
     
-    
     var zipcode: String? = ""
+    
     var city: String? = ""
+    
     var state: String? = ""
+    
+    
+    // MARK: - Tableview lifecycle functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +88,12 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         self.tabBarController?.tabBar.tintColor = UIColor.blue
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        self.tableView.backgroundColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if self.showTutorial {
@@ -81,8 +105,15 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.view.superview!.backgroundColor = UIColor.white
+        let insets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        self.view.frame = UIEdgeInsetsInsetRect(self.view.superview!.bounds, insets)
+    }
     
-    // MARK: - locationManager
+    
+    // MARK: - Set up LocationManager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)-> Void in
             if error != nil {
@@ -107,18 +138,6 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         })
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-        self.tableView.backgroundColor = UIColor(colorLiteralRed: 232.0 / 255.0, green: 232.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.view.superview!.backgroundColor = UIColor.white
-        let insets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-        self.view.frame = UIEdgeInsetsInsetRect(self.view.superview!.bounds, insets)
-    }
     
     func advancedSearchEnabled() {
         if self.advancedSearchSwitchState.isOn {
@@ -136,7 +155,7 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         self.tableView.reloadData()
     }
     
-    
+    // MARK: - IBAction functions
     @IBAction func searchSwitchTriggered(_ sender: UISwitch) {
         if switchState.isOn {
             cityTextField.isEnabled = false
@@ -161,31 +180,6 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         }
     }
     
-    // MARK: - Activity Indicator
-    
-    func startActivityIndicatorView() -> UIActivityIndicatorView {
-        let x = (self.view.frame.width / 2)
-        let y = (self.view.frame.height / 2)
-        
-        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        activityView.frame = CGRect(x: 200, y: 120, width: 200, height: 200)
-        activityView.center = CGPoint(x: x, y: y)
-        activityView.color = UIColor(colorLiteralRed: 55.0 / 255.0, green: 55.0 / 255.0, blue: 55.0 / 255.0, alpha: 1.0)
-        
-        activityView.startAnimating()
-        self.view.addSubview(activityView)
-        
-        return activityView
-    }
-    
-    func stopActivityIndicatorView(activityView: UIActivityIndicatorView) {
-        DispatchQueue.main.async {
-            self.view.willRemoveSubview(activityView)
-            activityView.removeFromSuperview()
-        }
-    }
-    
-    // MARK: - Search Function
     @IBAction func searchButtonTapped(_ sender: Any) {
         var city = ""
         var state = ""
@@ -255,6 +249,30 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
         }
         view.endEditing(true)
     }
+    // MARK: - Activity Indicator
+    
+    func startActivityIndicatorView() -> UIActivityIndicatorView {
+        let x = (self.view.frame.width / 2)
+        let y = (self.view.frame.height / 2)
+        
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityView.frame = CGRect(x: 200, y: 120, width: 200, height: 200)
+        activityView.center = CGPoint(x: x, y: y)
+        activityView.color = UIColor(colorLiteralRed: 55.0 / 255.0, green: 55.0 / 255.0, blue: 55.0 / 255.0, alpha: 1.0)
+        
+        activityView.startAnimating()
+        self.view.addSubview(activityView)
+        
+        return activityView
+    }
+    
+    func stopActivityIndicatorView(activityView: UIActivityIndicatorView) {
+        DispatchQueue.main.async {
+            self.view.willRemoveSubview(activityView)
+            activityView.removeFromSuperview()
+        }
+    }
+    
     
     // MARK: - Table view data source
     

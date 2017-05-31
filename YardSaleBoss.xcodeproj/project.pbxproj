@@ -20,7 +20,6 @@
 		5C5049B81E9554FD00D456DD /* TutorialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5049B71E9554FD00D456DD /* TutorialController.swift */; };
 		5C7933AD1E85E03A009B3F4B /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7933AC1E85E03A009B3F4B /* CloudKitManager.swift */; };
 		5C9010921E7703C50098AFFB /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9010911E7703C50098AFFB /* SearchResultsTableViewController.swift */; };
-		5C9010941E7703DC0098AFFB /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9010931E7703DC0098AFFB /* Stack.swift */; };
 		5C93B8A31E7A1667001FAB4E /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93B8A21E7A1667001FAB4E /* SearchResultsTableViewCell.swift */; };
 		5CA43DC41E81A4D6005B2BC7 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA43DC31E81A4D6005B2BC7 /* DirectionsViewController.swift */; };
 		5CAC5DFB1E7AEF7000F47C64 /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC5DFA1E7AEF7000F47C64 /* ImageController.swift */; };
@@ -53,7 +52,6 @@
 		5C5049B71E9554FD00D456DD /* TutorialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialController.swift; sourceTree = "<group>"; };
 		5C7933AC1E85E03A009B3F4B /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		5C9010911E7703C50098AFFB /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
-		5C9010931E7703DC0098AFFB /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		5C93B8A21E7A1667001FAB4E /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
 		5CA43DC31E81A4D6005B2BC7 /* DirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
 		5CAC5DFA1E7AEF7000F47C64 /* ImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				5CDB52111E772DBB00E87D29 /* Yardsale.swift */,
-				5C9010931E7703DC0098AFFB /* Stack.swift */,
 				5C2ECF901E7C5839000F1D4B /* User.swift */,
 				5CB3D4F71E8D68AE00E808A2 /* CraigslistState.swift */,
 				5CB3D4F91E8D68CE00E808A2 /* CraigslistRegion.swift */,
@@ -343,7 +340,6 @@
 				5C4AD5D11E7C9B190050C6C9 /* GoogleDirectionsController.swift in Sources */,
 				5C20C24E1E79EE67008780BE /* NetworkController.swift in Sources */,
 				5CB3D4F81E8D68AE00E808A2 /* CraigslistState.swift in Sources */,
-				5C9010941E7703DC0098AFFB /* Stack.swift in Sources */,
 				5C7933AD1E85E03A009B3F4B /* CloudKitManager.swift in Sources */,
 				5C5049B81E9554FD00D456DD /* TutorialController.swift in Sources */,
 				5C93B8A31E7A1667001FAB4E /* SearchResultsTableViewCell.swift in Sources */,
