@@ -89,6 +89,7 @@ class SearchResultsTableViewController: UITableViewController, CLLocationManager
                 print("Reverse geocoder failed.")
                 return
             }
+            
             if let placemarks = placemarks {
                 if placemarks.count > 0 {
                     let placemark = placemarks[0]

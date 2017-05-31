@@ -10,6 +10,8 @@ import UIKit
 import CloudKit
 
 class Yardsale: Equatable {
+    
+    // MARK: - Keys
     static let titleKey = "title"
     static let yardsaleDescriptionKey = "yardsaleDescripiton"
     static let yardsaleURLKey = "yardsaleURL"
@@ -20,17 +22,25 @@ class Yardsale: Equatable {
     static let imageKey = "image"
     static let cityStateStringKey = "cityStateString"
     
-    
-    //TODO: make Yardsale conform to cloudkitsyncable.
+    // MARK: - Properties
     let title: String
+    
     let yardsaleDescription: String
+    
     let yardsaleURL: String
+    
     let imageURL: String
+    
     let timeOnSite: String
+    
     var cityStateString: String
+    
     let kslID: String
+    
     var streetAddress: String?
+    
     var image: UIImage?
+    
     var imageCKAsset: CKAsset? {
         do {
             guard let image = image else { return nil}
@@ -45,23 +55,46 @@ class Yardsale: Equatable {
             print("Error writing data", error)
             return nil
         }
-
     }
+    
     var city: String {
         return cityStateString.components(separatedBy: ", ")[0]
     }
+    
     var state: String {
         return cityStateString.components(separatedBy: ", ")[1]
     }
+    
     var timestamp: Date?
+    
     var zipcode: Int?
+    
     var gpsCoordLat: Float?
+    
     var gpsCoordLong: Float?
+    
     var photoPaths: [String]?
+    
     var yardsaleDate: Date?
+    
 //    var reviews: [Review]?
     
-    init(title: String, yardsaleDescription: String, yardsaleURL: String, imageURL: String, timeOnSite: String, cityStateString: String, streetAddress: String? = nil, image: UIImage? = nil, timestamp: Date? = nil, zipcode: Int? = nil, gpsCoordLat: Float? = nil, gpsCoordLong: Float? = nil, photoPaths: [String]? = nil, yardsaleDate: Date? = nil, kslID: String) {
+    init(title: String,
+         yardsaleDescription: String,
+         yardsaleURL: String,
+         imageURL: String,
+         timeOnSite: String,
+         cityStateString: String,
+         streetAddress: String? = nil,
+         image: UIImage? = nil,
+         timestamp: Date? = nil,
+         zipcode: Int? = nil,
+         gpsCoordLat: Float? = nil,
+         gpsCoordLong: Float? = nil,
+         photoPaths: [String]? = nil,
+         yardsaleDate: Date? = nil,
+         kslID: String) {
+        
         self.title = title
         self.yardsaleDescription = yardsaleDescription
         self.yardsaleURL = yardsaleURL
@@ -78,6 +111,7 @@ class Yardsale: Equatable {
         self.yardsaleDate = yardsaleDate
         self.kslID = kslID
     }
+    
     init?(withCKRecord CKRecord: CKRecord) {
         guard let title = CKRecord[Yardsale.titleKey] as? String,
             let description = CKRecord[Yardsale.yardsaleDescriptionKey] as? String,
@@ -86,17 +120,21 @@ class Yardsale: Equatable {
             let cityState = CKRecord[Yardsale.cityStateStringKey] as? String,
             let imageAsset = CKRecord[Yardsale.imageKey] as? CKAsset,
             let timeOnSite = CKRecord[Yardsale.timeOnSiteKey] as? String,
-            let streetAddress = CKRecord[Yardsale.streetAddressKey] as? String else { return nil }
+            let streetAddress = CKRecord[Yardsale.streetAddressKey] as? String
+            else { return nil }
+        
         self.title = title
         self.yardsaleDescription = description
         self.yardsaleURL = url
         self.imageURL = imageURL
         self.cityStateString = cityState
         var image: UIImage? = nil
+        
         do {
             let imageData = try Data(contentsOf: imageAsset.fileURL)
             image = UIImage(data: imageData)
         }
+            
         catch {
             print("Error turning imageAsset into UIImage")
         }
@@ -112,15 +150,16 @@ class Yardsale: Equatable {
         self.photoPaths = nil
         self.yardsaleDate = nil
     }
-    
 }
 
+// MARK: - Equatable
 extension Yardsale {
     static func == (lhs: Yardsale, rhs: Yardsale) -> Bool {
         return lhs.yardsaleURL == rhs.yardsaleURL
     }
 }
 
+// MARK: - CKRecord extension (convenience init)
 extension CKRecord {
     convenience init(_ yardsale: Yardsale) {
         let recordID = CKRecordID(recordName: yardsale.kslID)

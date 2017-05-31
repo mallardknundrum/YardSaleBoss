@@ -15,7 +15,7 @@ class YardsaleController {
     
     var yardsales: [Yardsale] = []
     var savedYardsales: [Yardsale] = []
-
+    
     
     var kslNextPageURLString = ""
     
@@ -47,7 +47,7 @@ class YardsaleController {
             }
             group.notify(queue: DispatchQueue.main, execute: {
                 completion(listings)
-                })
+            })
             return
         }
     }
