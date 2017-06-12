@@ -10,6 +10,21 @@ import UIKit
 
 class SavedYardsalesTableViewController: UITableViewController {
     
+    // MARK: - Actions
+    
+    @IBAction func clearButtonTapped(_ sender: Any) {
+        YardsaleController.shared.savedYardsales = []
+        tableView.reloadData()
+    }
+    
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var clearButton: UIBarButtonItem!
+    
+    
+    // MARK: - Properties
+    
     var showTutorial = false
     var dummyYardsale = Yardsale(title: "Mock Yardsale", yardsaleDescription: "This is a demonstration yardsale. Normally people would post the address of the yardsale here. Here is a sample address: \n\n Address: 301 S Temple, Salt Lake City, UT. You will need to copy the street address and paste it in the address box above. Also, check the city and state. No abbreviations are allowed for the city. For example, SLC will not work. It needs to say Salt Lake City (capitalization is not important). ", yardsaleURL: "www.someRandomYardsale.com", imageURL: "www.randomimage.com", timeOnSite: "30min", cityStateString: "Salt Lake City, UT", image: #imageLiteral(resourceName: "dummyYardsale"), kslID: "gibberish")
     
@@ -27,6 +42,7 @@ class SavedYardsalesTableViewController: UITableViewController {
         if self.showTutorial {
             YardsaleController.shared.savedYardsales.insert(dummyYardsale, at: 0)
         }
+        clearButton.tintColor = .red
     }
     
     override func viewWillAppear(_ animated: Bool) {
