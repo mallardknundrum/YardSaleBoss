@@ -9,7 +9,6 @@
 import Foundation
 import HTMLReader
 
-
 //class CraigslistState {
 //    let name: String
 //    let regions: [CraigslistRegion] = []
